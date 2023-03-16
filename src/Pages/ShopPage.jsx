@@ -1,5 +1,6 @@
 import React from 'react'
 import NavBar from '../Componets/NavBar/NavBar'
+import { Fa500Px, FaMoneyBillAlt, FaShieldAlt, FaShippingFast } from "react-icons/fa";
 
 function ShopPage() {
     const bestseller = [1, 2, 3, 4,]
@@ -9,6 +10,26 @@ function ShopPage() {
 
             </div>
         )
+    }
+
+    const Footer = () => {
+        const footerItems = ['Free Shipping', 'Secure Payments', "Loyalty rewards", "30-Day Return"]
+        const foot = footerItems.map(item => {
+            return (
+                <div className='h-32 w-52 flex justify-around gap-2 items-center text-center text-xs'>
+                    {item.includes('Ship') && <h1 className='text-3xl'><FaShippingFast /></h1>}
+                    {item.includes('Secure') && <h1 className='text-3xl'><FaShieldAlt /></h1>}
+                    {item.includes('Loyalty') && < h1 className='text-3xl'><FaMoneyBillAlt /></h1>}
+                    {item.includes('Return') && <h1 className='text-3xl'><Fa500Px /></h1>}
+
+
+
+                    {item}
+                </div>
+            )
+
+        })
+        return foot
     }
 
     return (
@@ -144,8 +165,20 @@ function ShopPage() {
                 </div>
             </div>
 
-            <div className='w-[80%] h-32 bg-slate-500 m-auto my-20'>
-
+            <div className='w-[90%] md:h-32 h-fit  bg-white  m-auto my-20 overflow-hidden relative'>
+                <div className='z-10 absolute text-black flex  justify-between md:p-8 items-center flex-col md:flex-row w-full h-full'>
+                    <div>
+                        <h1 className='text-4xl font-bold'>Humaine</h1>
+                        <h1 className='font-semibold text-center'>Grandure</h1>
+                    </div>
+                    <div className='text-center'>
+                        <h1 className='text-3xl'>Shop Now With Us</h1>
+                        <h1 className='text-xs'>buy all your clothing needs</h1>
+                    </div>
+                    <button className='w-28 h-12 bg-white trans-slow hover:scale-110 shadow shadow-black hover:shadow-none hover:bg-black hover:text-white text-black m-4'>Shop Now</button>
+                </div>
+                <div className='bg-white w-full h-full absolute bg-opacity-75'></div>
+                <img className='w-full h-full op object-cover' src="https://img.freepik.com/free-vector/larkspur-by-william-morris_53876-58889.jpg?w=1800&t=st=1678976980~exp=1678977580~hmac=4cbe4de4532ab7727485d1936d35c9bcc9aaa8e452acfd0428bddd013b41198a" alt="" />
             </div>
 
             <div className='h-60 p-14 overflow-hidden m-2'>
@@ -160,14 +193,47 @@ function ShopPage() {
                 </div>
             </div>
 
-            <div className='border-t-white border  w-3/4 m-auto flex md:flex-row flex-col'>
-                <div>Free Shipping</div>
-                <div>Loyalty Rewards</div>
-                <div>Secure Payments</div>
-                <div>Refunds</div>
+            <div className='mt-20 border-t-gray-600 gap-2 md:gap-16 border-t md:w-[51rem]  md:justify-between justify-center items-center m-auto flex w-[90%] p-4'>
+                <Footer />
+            </div>
 
+            <div className='bg-[#141414] text-xs gap-12 h-fit  p-14 flex flex-col md:flex-row justify-start items-start'>
+                <div className='p-2'>
+                    <h1 className='my-1 font-bold text-2xl'>Humaine Grandure</h1>
+                    <h1 className='my-1 '>will add adress here if so?</h1>
+                    <h1 className='my-1 '>+1234567890</h1>
+                    <h1 className='my-1 '>email@email.com</h1>
+                    <div className="my-1  flex gap-4  items-center">
+                        <button className="h-4 w-4 trans hover:scale-105 bg-white"></button>
+                        <button className="h-4 w-4 trans hover:scale-105 bg-white"></button>
+                        <button className="h-4 w-4 trans hover:scale-105 bg-white"></button>
+                        <button className="h-4 w-4 trans hover:scale-105 bg-white"></button>
+                    </div>
+                </div>
+                <div className='my-10 p-2 h-full w-fit'>
+                    <h1 className='text-2xl '> Company</h1>
+                    <div className='h-12 '>
+                        <button className='block'>Contact</button>
+                        <button className='block'>About Store</button>
+                    </div>
+                </div>
+
+                <div className=' h-fit'>
+                    <div className='p-2 h-fit'>
+                        <h1 className='m-1 font-bold text-2xl'>Newletter</h1>
+                        <h1 className='m-1 '>Be the first to hear
+                            the latest news from Humaine
+                            Grandure, and much more!
+                        </h1>
+                        <input className='w-full h-8 trans-slow focus:scale-110 hover:scale-105' type="text" placeholder='Email' />
+                        <h1>By subscribing you agree to our privacy policy</h1>
+                        <button className='h-12 w-32 p-2 bg-gray-700 trans-slow hover:bg-black hover:scale-110 my-8'>Subscribe</button>
+                    </div>
+
+                </div>
 
             </div>
+            <div className='h-12 bg-white'></div>
 
 
         </div>
