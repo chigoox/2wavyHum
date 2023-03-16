@@ -74,7 +74,7 @@ function ShopPage() {
                     <div className='h-96 w-96 p-4'>
                         <h1 className='w-20 text-xs my-4'>Established 2020</h1>
                         <div>
-                            <h1 className='text-2xl font-bold'>Humaine Grandure Philosophy</h1>
+                            <h1 className='text-2xl font-bold'>Humaine Grandeur Philosophy</h1>
                             <h1 className='font-semibold italic'>"5 is the goat"</h1>
                         </div>
                         <div>
@@ -169,7 +169,7 @@ function ShopPage() {
                 <div className='z-10 absolute text-black flex  justify-between md:p-8 items-center flex-col md:flex-row w-full h-full'>
                     <div>
                         <h1 className='text-4xl font-bold'>Humaine</h1>
-                        <h1 className='font-semibold text-center'>Grandure</h1>
+                        <h1 className='font-semibold text-center'>Grandeur</h1>
                     </div>
                     <div className='text-center'>
                         <h1 className='text-3xl'>Shop Now With Us</h1>
@@ -183,7 +183,7 @@ function ShopPage() {
 
             <div className='h-60 p-14 overflow-hidden m-2'>
                 <div className="flex justify-between md:w-[51rem] m-auto">
-                    <h1 className='font-semibold text-sm md:text-lg'>World of Humaine Grandure</h1>
+                    <h1 className='font-semibold text-sm md:text-lg'>World of Humaine Grandeur</h1>
                     <h1>ALL ARTICLES {' >>'}</h1>
                 </div>
                 <div className='gap-4 flex justify-center items-center overflow-x-scroll'>
@@ -199,7 +199,7 @@ function ShopPage() {
 
             <div className='bg-[#141414] text-xs gap-12 h-fit  p-14 flex flex-col md:flex-row justify-start items-start'>
                 <div className='p-2'>
-                    <h1 className='my-1 font-bold text-2xl'>Humaine Grandure</h1>
+                    <h1 className='my-1 font-bold text-2xl'>Humaine Grandeur</h1>
                     <h1 className='my-1 '>will add adress here if so?</h1>
                     <h1 className='my-1 '>+1234567890</h1>
                     <h1 className='my-1 '>email@email.com</h1>
@@ -223,7 +223,7 @@ function ShopPage() {
                         <h1 className='m-1 font-bold text-2xl'>Newletter</h1>
                         <h1 className='m-1 '>Be the first to hear
                             the latest news from Humaine
-                            Grandure, and much more!
+                            Grandeur, and much more!
                         </h1>
                         <input className='w-full h-8 trans-slow focus:scale-110 hover:scale-105' type="text" placeholder='Email' />
                         <h1>By subscribing you agree to our privacy policy</h1>
