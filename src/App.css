@@ -24,7 +24,15 @@ body{
 }
 
 .trans-slow{
-  transition: all;
-  animation-duration: 1000ms;
-  animation: ease-in-out;
+  transition: all 1000ms ease-in-out;
+}
+
+.trans {
+  transition: all 500ms ease-in-out;
+}
+
+.trans-fast {
+  transition: all 100ms ease-in-out;
+}.trans-slow {
+  transition: all 1000ms ease-in-out;
 }
