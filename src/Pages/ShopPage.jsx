@@ -89,7 +89,7 @@ function ShopPage() {
             </div>
 
             <div className='bg-white h-[35rem] overflow-hidden'>
-                <img className=' h-full object-contain  md:left-0  w-full relative' src="https://images.unsplash.com/photo-1494492467451-77dcc05bda95?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aGlnaCUyMGZhc2lvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1400&q=60" alt="" />
+                <img className=' h-full object-cover  md:left-0  w-full relative' src="https://images.unsplash.com/photo-1494492467451-77dcc05bda95?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aGlnaCUyMGZhc2lvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1400&q=60" alt="" />
             </div>
 
             <div className='bg-[#141414] bottom-3 h-96 overflow-hidden'>
