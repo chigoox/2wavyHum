@@ -37,7 +37,7 @@ function ShopPage() {
 
             <NavBar />
 
-            <div className='transition-all overflow-hidden duration-1000 ease-in-out lg:w-[50%] w-[50%] md:w-96 h-[35rem] rounded-b-full bg-gray-600 absolute right-0'>
+            <div className='transition-all hover:scale-y-150 hover:scale-x-125 top-0 hover:top-32 overflow-hidden duration-1000 ease-in-out lg:w-[50%] w-[50%] md:w-96 h-[35rem] rounded-b-full bg-gray-600 absolute right-0'>
                 <img className=' object-cover h-full w-full' src="https://images.unsplash.com/photo-1614483080746-7739e19960a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGZhc2lvbiUyMG1hbGV8ZW58MHx8MHx8&auto=format&fit=crop&w=1400&q=60" alt="" />
 
 
@@ -66,8 +66,8 @@ function ShopPage() {
 
             <div className='p-12 mt-40 m-auto w-[90%]'>
                 <div className="flex flex-col md:flex-row justify-center gap-2 md:gap-40 items-center">
-                    <div className=' rounded-full border-dotted border-4 h-96 w-60 center'>
-                        <div className='w-[90%] h-[90%] overflow-hidden object-cover bg-white rounded-full'>
+                    <div className='group  rounded-full hover:scale-125 trans-slow border-dotted border-4 h-96 w-60 center'>
+                        <div className='w-[90%] group-hover:scale-75 group-hover:animate-pulse trans-slow h-[90%] overflow-hidden object-cover bg-white rounded-full'>
                             <img className='w-full h-full object-cover' src="https://images.unsplash.com/photo-1565537222174-2a43ca1c3462?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8M3w5MzY1ODN8fGVufDB8fHx8&auto=format&fit=crop&w=1400&q=60" alt="" />
                         </div>
                     </div>
