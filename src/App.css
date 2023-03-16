@@ -36,3 +36,9 @@ body{
 }.trans-slow {
   transition: all 1000ms ease-in-out;
 }
+
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
