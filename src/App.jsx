@@ -8,14 +8,16 @@ import './App.css'
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route exact path="/" element={<Layout />}>
-          <Route index element={<ShopPage />} />
-          {/*  <Route path="/:id" element={<Main />} /> */}
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <div className="text-white">
+      <BrowserRouter>
+        <Routes>
+          <Route exact path="/" element={<Layout />}>
+            <Route index element={<ShopPage />} />
+            {/*  <Route path="/:id" element={<Main />} /> */}
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </div>
   )
 }
 

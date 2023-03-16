@@ -22,3 +22,9 @@
 body{
   background-color: white;
 }
+
+.trans-slow{
+  transition: all;
+  animation-duration: 1000ms;
+  animation: ease-in-out;
+}
