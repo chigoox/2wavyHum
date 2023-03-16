@@ -17,7 +17,7 @@ function ShopPage() {
             <NavBar />
 
             <div className='transition-all overflow-hidden duration-1000 ease-in-out lg:w-[50%] w-[50%] md:w-96 h-[35rem] rounded-b-full bg-gray-600 absolute right-0'>
-                <img className=' object-cover h-full w-full' src="https://images.unsplash.com/photo-1587910234573-d6fc84743bc8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8Mnw4Nm5EbGJyNGwyY3x8ZW58MHx8fHw%3D&auto=format&fit=crop&w=1400&q=60" alt="" />
+                <img className=' object-cover h-full w-full' src="https://images.unsplash.com/photo-1614483080746-7739e19960a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGZhc2lvbiUyMG1hbGV8ZW58MHx8MHx8&auto=format&fit=crop&w=1400&q=60" alt="" />
 
 
             </div>
@@ -32,7 +32,7 @@ function ShopPage() {
                         <p>2023</p>
                     </div>
                     <div className='my-4'>
-                        <h1 className='text-5xl md:text-7xl'>Autum</h1>
+                        <h1 className='text-5xl md:text-7xl'>Humaine</h1>
                         <h1 className='text-5xl md:text-7xl'>Vibes</h1>
                     </div>
                     <div className=''>
@@ -91,8 +91,16 @@ function ShopPage() {
                 </div>
             </div>
 
-            <div className='bg-white h-[35rem] overflow-hidden'>
-                <img className='h-full object-cover  md:left-0  w-full relative' src="https://images.unsplash.com/photo-1494492467451-77dcc05bda95?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aGlnaCUyMGZhc2lvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1400&q=60" alt="" />
+            <div className='bg-white h-[35rem] overflow-hidden relative'>
+                <div className='p-4 absolute top-0 flex justify-center flex-col items-center left-0 z-10 h-full w-full'>
+                    <h1 className='text '>Gift Guide 2023</h1>
+                    <h1 className='text-4xl md:text-5xl font-bold'>The Gift Guide 2023</h1>
+                    <br />
+                    <br />
+                    <br />
+                    <h1 className='text-center w-80 text- white'>present gifts for your family, friends, or other special people in your life, no matter the events</h1>
+                </div>
+                <img className='h-[220%] bottom-20 md:bottom-0 object-cover  md:left-0   w-[220%] relative' src="https://images.unsplash.com/photo-1555661398-9fd5131763ec" alt="" />
             </div>
 
             <div className='bg-[#141414] bottom-3 h-96 overflow-hidden'>
@@ -112,12 +120,53 @@ function ShopPage() {
             </div>
 
             <div className='flex gap-1 justify-center items-center'>
-                <div className='w-[50%] bg-slate-200 h-52 md:h-96 overflow-hidden'>
+                <div className='w-[50%] relative bg-slate-200 h-52 md:h-96 overflow-hidden'>
+                    <div className='p-8 absolute top-0 flex justify-center flex-col items-center left-0 z-10 h-full w-full'>
+                        <h1 className='text-sm'>Collection</h1>
+                        <h1 className='text-xl text-black md:text-white text-center md:text-5xl font-bold'>Online Only</h1>
+                        <br />
+                        <br />
+                        <br />
+                        <h1 className='text-center bg-opacity-80 bg-black p-1 text-white'>Discover new items at a lower price</h1>
+                    </div>
                     <img className='w-[120%] h-[120%] object-cover relative' src="https://images.unsplash.com/photo-1646805925007-510be75f20f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8aGlnaCUyMGZhc2lvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1400&q=60S" alt="" />
                 </div>
-                <div className='w-[50%] overflow-hidden bg-slate-200 h-52 md:h-96'>
+                <div className='w-[50%] overflow-hidden relative bg-slate-200 h-52 md:h-96'>
+                    <div className='p-8 absolute top-0 flex justify-center flex-col items-center left-0 z-10 h-full w-full'>
+                        <h1 className='text-sm'>SALE UP TO</h1>
+                        <h1 className='text-xl md:text-white text-center md:text-5xl font-bold'>{<div className='text-orange-400 inline-block'>40%</div>} OFF</h1>
+                        <br />
+                        <br />
+                        <br />
+                        <h1 className='text-center  bg-black bg-opacity-80 p-1 text-white '>Hurry only for a limited time!</h1>
+                    </div>
                     <img className='object-cover w-full h-full' src="https://images.unsplash.com/photo-1544441893-675973e31985?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y2xvdGhpbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=1400&q=60" alt="" />
                 </div>
+            </div>
+
+            <div className='w-[80%] h-32 bg-slate-500 m-auto my-20'>
+
+            </div>
+
+            <div className='h-60 p-14 overflow-hidden m-2'>
+                <div className="flex justify-between md:w-[51rem] m-auto">
+                    <h1 className='font-semibold text-sm md:text-lg'>World of Humaine Grandure</h1>
+                    <h1>ALL ARTICLES {' >>'}</h1>
+                </div>
+                <div className='gap-4 flex justify-center items-center overflow-x-scroll'>
+                    {bestseller.map((item) => {
+                        return (<ItemBox key={item} />)
+                    })}
+                </div>
+            </div>
+
+            <div className='border-t-white border  w-3/4 m-auto flex md:flex-row flex-col'>
+                <div>Free Shipping</div>
+                <div>Loyalty Rewards</div>
+                <div>Secure Payments</div>
+                <div>Refunds</div>
+
+
             </div>
 
 
