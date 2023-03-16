@@ -72,8 +72,8 @@ function ShopPage() {
                 </div>
             </div>
 
-            <div className='bg-[#141414] h-96 overflow-hidden'>
-                <div className=' w-full m-auto p-2 md:p-24'>
+            <div className='bg-[#141414] bottom-3 h-96 overflow-hidden'>
+                <div className=' w-full p-2'>
                     <div className='m-auto w-[51rem] flex justify-between items-center'>
                         <h1 className='text-3xl my-4'>Best Seller</h1>
                         <div>
@@ -86,7 +86,35 @@ function ShopPage() {
                         })}
                     </div>
                 </div>
+            </div>
 
+            <div className='bg-white h-[35rem] overflow-hidden'>
+                <img className=' min-w-max h-full object-cover  md:left-0  w-full relative' src="https://images.unsplash.com/photo-1494492467451-77dcc05bda95?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aGlnaCUyMGZhc2lvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1400&q=60" alt="" />
+            </div>
+
+            <div className='bg-[#141414] bottom-3 h-96 overflow-hidden'>
+                <div className=' w-full p-2'>
+                    <div className='m-auto w-[51rem] flex justify-between items-center'>
+                        <h1 className='text-3xl my-4'>New Items</h1>
+                        <div>
+                            <h1 className='font-bold'>VIEW ALL  {' >>'}</h1>
+                        </div>
+                    </div>
+                    <div className='gap-4 flex justify-center overflow-x-scroll'>
+                        {bestseller.map((item) => {
+                            return (<ItemBox key={item} />)
+                        })}
+                    </div>
+                </div>
+            </div>
+
+            <div className='flex gap-1 justify-center items-center'>
+                <div className='w-[50%] bg-slate-200 h-52 md:h-96 overflow-hidden'>
+                    <img className='w-[120%] h-[120%] object-cover relative' src="https://images.unsplash.com/photo-1646805925007-510be75f20f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8aGlnaCUyMGZhc2lvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1400&q=60S" alt="" />
+                </div>
+                <div className='w-[50%] overflow-hidden bg-slate-200 h-52 md:h-96'>
+                    <img className='object-cover w-full h-full' src="https://images.unsplash.com/photo-1544441893-675973e31985?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y2xvdGhpbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=1400&q=60" alt="" />
+                </div>
             </div>
 
 
