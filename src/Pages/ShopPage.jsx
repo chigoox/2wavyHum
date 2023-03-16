@@ -37,7 +37,7 @@ function ShopPage() {
 
             <NavBar />
 
-            <div className='transition-all hover:scale-y-150 hover:scale-x-125 top-0 hover:top-32 overflow-hidden duration-1000 ease-in-out lg:w-[50%] w-[50%] md:w-96 h-[35rem] rounded-b-full bg-gray-600 absolute right-0'>
+            <div className='transition-all hover:scale-110 md:hover:scale-y-150 md:hover:scale-x-125 top-0 hover:top-32 overflow-hidden duration-1000 ease-in-out lg:w-[50%] w-[50%] md:w-96 h-[35rem] rounded-b-full bg-gray-600 absolute right-0'>
                 <img className=' object-cover h-full w-full' src="https://images.unsplash.com/photo-1614483080746-7739e19960a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGZhc2lvbiUyMG1hbGV8ZW58MHx8MHx8&auto=format&fit=crop&w=1400&q=60" alt="" />
 
 
