@@ -1,6 +1,8 @@
 import React from 'react'
 import NavBar from '../Componets/NavBar/NavBar'
 import { Fa500Px, FaMoneyBillAlt, FaShieldAlt, FaShippingFast } from "react-icons/fa";
+import Hatvid from '../assets/hatvid1.mp4'
+import ReactPlayer from 'react-player';
 
 function ShopPage() {
     const bestseller = [1, 2, 3, 4,]
@@ -32,13 +34,17 @@ function ShopPage() {
         return foot
     }
 
+
     return (
         <div className='h-[100vh] relative bg-black'>
 
             <NavBar />
 
-            <div className='transition-all hover:scale-110 md:hover:scale-y-150 md:hover:scale-x-125 top-0 hover:top-32 overflow-hidden duration-1000 ease-in-out lg:w-[50%] w-[50%] md:w-96 h-[35rem] rounded-b-full bg-gray-600 absolute right-0'>
-                <img className=' object-cover h-full w-full' src="https://images.unsplash.com/photo-1614483080746-7739e19960a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGZhc2lvbiUyMG1hbGV8ZW58MHx8MHx8&auto=format&fit=crop&w=1400&q=60" alt="" />
+            <div className='transition-all md:hover:scale-105 hover:outline-dotted outline-offset-0 hover:outline-offset-8 outline-8 group top-0  overflow-hidden duration-1000 ease-in-out lg:w-[50%] w-[50%] md:w-96 h-[35rem] rounded-b-full bg-gray-600 absolute right-0'>
+                <video loop autoPlay muted type="video/mp4" className='h-full object-cover w-full   ' src={Hatvid} >
+
+                </video>
+                {/* <img className=' object-cover h-full w-full' src="https://images.unsplash.com/photo-1614483080746-7739e19960a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGZhc2lvbiUyMG1hbGV8ZW58MHx8MHx8&auto=format&fit=crop&w=1400&q=60" alt="" /> */}
 
 
             </div>

@@ -47,9 +47,9 @@ body{
 
 .trans-fast {
   transition: all 100ms ease-in-out;
-}.trans-slow {
-  transition: all 1000ms ease-in-out;
 }
+
+
 
 .center{
   display: flex;
