@@ -1,8 +1,13 @@
 import React, { useState } from 'react'
 import ItemIcon from '../Componets/Shop/ItemIcon'
+import ProductPage from '../Componets/Shop/ProductPage'
+import { disableScroll } from '../ED5/DisableScroll'
 function ShopPage() {
     const [hovered, setHovered] = useState({})
+    const [productPageOpened, setProductPageOpened] = useState(false)
     const [categorySelected, setCategorySelected] = useState({ All: true })
+    const [selectedProduct, setSelectedProduct] = useState()
+    const toggleProductPage = () => { setProductPageOpened(!productPageOpened); disableScroll(!productPageOpened) }
     const category = ['Men', 'Women', 'Recommended', 'Featured', 'All',]
     const products = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
     const shopitems = [
@@ -39,10 +44,8 @@ function ShopPage() {
 
 
     return (
-        <div className={`${productPageOpened ? 'h-full' : 'h-screen overflow-hidden'} w-full flex-col flex items-center`} >
-            <div className='z-30 fixed h-screen w-screen  border-pink-400 border-2 flex items-center justify-center'>
-                <div className='bg-white h-[30rem] w-96 overflow-y-scroll hidescroll'></div>
-            </div>
+        <div className={`h-full w-full flex-col flex items-center`} >
+            {productPageOpened && <ProductPage productInfo={{}} toggleProductPage={toggleProductPage} />}
 
             <div className='z-10 '>
                 <div className={`grid gap-2 hover:gap-4  grid-flow-col scale-75 md:scale-100 w-fit grid-rows-2 text-black rotate-45 m-auto relative trans-slow  top-0 right-0 left-0 bottom-0 ${hovered.n ? 'top-6' : hovered.s ? '-top-6' : hovered.w ? '-left-8' : hovered.e ? 'left-8' : ''}  justify-center`}>
@@ -84,20 +87,23 @@ function ShopPage() {
             <div className=' w-full mt-10 h-20 p-2 gap-8 flex overflow-x-scroll justify-center items-center  overflow-hidden hidescroll'>
                 {category.map((category) => {
                     return (
-                        <div className="bg-white hover:scale-125 z-[11] trans text-black flex center w-32 min-w-[130px] rounded-full h-9">{category}</div>
+                        <div key={category} className="bg-white hover:scale-125 z-[11] trans text-black flex center w-32 min-w-[130px] rounded-full h-9">{category}</div>
                     )
                 })}
             </div>
 
             <div className=' justify-center items-center w-[90%] m-auto gap-12 md:gap-2 grid grid-flow-rows md:grid-cols-2 lg:grid-cols-4'>
                 {
-                    products.map((product) => {
+                    products.map((product, index) => {
                         return (
                             <ItemIcon
+                                key={index}
                                 salePrice={'$100'}
                                 name={'New Hat'}
                                 price={'$200'}
                                 rating={5}
+                                toggleProductPage={toggleProductPage}
+                                setSelectedProduct={setSelectedProduct}
                                 img={'https://images.unsplash.com/photo-1637248666370-70a4a603c23e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTh8ODZuRGxicjRsMmN8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60'}
                             />
                         )
