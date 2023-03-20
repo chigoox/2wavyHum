@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css'
 import Layout from './Pages/Layout';
+import HomePage from './Pages/HomePage';
 import ShopPage from './Pages/ShopPage';
 
 import './App.css'
@@ -12,7 +13,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element={<Layout />}>
-            <Route index element={<ShopPage />} />
+            <Route index element={<HomePage />} />
+            <Route path="/Shop" element={<ShopPage />} />
             {/*  <Route path="/:id" element={<Main />} /> */}
           </Route>
         </Routes>

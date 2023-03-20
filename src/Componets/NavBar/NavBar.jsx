@@ -3,7 +3,7 @@ import { BsSearch, BsPerson, BsCart2, BsFillMenuButtonWideFill } from "react-ico
 
 function NavBar() {
     const navItems = ['Home', 'Shop', 'Product', 'Blog', 'Pages']
-    const NavItemsLook = ({ item }) => { return (<h1 className='font-bold text-xs trans hover:scale-105 text-slate-400 hover:text-white hover:underline  underline-offset-8'>{item}</h1>) }
+    const NavItemsLook = ({ item }) => { return (<a href={`/${item == 'Home' ? '' : item}`} className='font-bold text-xs trans hover:scale-105 text-slate-400 hover:text-white hover:underline  underline-offset-8'>{item}</a>) }
     return (
         <div className='flex items-center p-12 h-[76px] w-full fixed z-[99999]'>
             <div className="w-32 lg:w-64 h-10 font-bold text-sm md:text-lg">Humaine Grandure</div>
