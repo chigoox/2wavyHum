@@ -4,7 +4,7 @@ function ShopPage() {
     const [hovered, setHovered] = useState({})
     const [categorySelected, setCategorySelected] = useState({ All: true })
     const category = ['Men', 'Women', 'Recommended', 'Featured', 'All',]
-    const x = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+    const products = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
     const shopitems = [
         {
             name: 'hat',
@@ -39,9 +39,12 @@ function ShopPage() {
 
 
     return (
-        <div className='h-full w-full flex-col flex items-center'>
+        <div className={`${productPageOpened ? 'h-full' : 'h-screen overflow-hidden'} w-full flex-col flex items-center`} >
+            <div className='z-30 fixed h-screen w-screen  border-pink-400 border-2 flex items-center justify-center'>
+                <div className='bg-white h-[30rem] w-96 overflow-y-scroll hidescroll'></div>
+            </div>
 
-            <div className='z-10'>
+            <div className='z-10 '>
                 <div className={`grid gap-2 hover:gap-4  grid-flow-col scale-75 md:scale-100 w-fit grid-rows-2 text-black rotate-45 m-auto relative trans-slow  top-0 right-0 left-0 bottom-0 ${hovered.n ? 'top-6' : hovered.s ? '-top-6' : hovered.w ? '-left-8' : hovered.e ? 'left-8' : ''}  justify-center`}>
                     <div onMouseOut={() => { setHovered({}) }} onMouseOver={() => { setHovered({ n: true }) }} className='h-52 w-52  relative pointer-events-none  trans-slow'>
                         <div className='bg-white justify-center items-center flex  hover:w-[90%] hover:h-[90%] w-[60%] h-[60%] m-2 absolute bottom-0 right-0 pointer-events-auto trans-slow'>
@@ -88,7 +91,7 @@ function ShopPage() {
 
             <div className=' justify-center items-center w-[90%] m-auto gap-12 md:gap-2 grid grid-flow-rows md:grid-cols-2 lg:grid-cols-4'>
                 {
-                    x.map((product) => {
+                    products.map((product) => {
                         return (
                             <ItemIcon
                                 salePrice={'$100'}
