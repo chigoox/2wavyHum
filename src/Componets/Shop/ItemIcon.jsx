@@ -15,7 +15,7 @@ function ItemIcon({ img, price, name, rating, salePrice }) {
         )
     }
     return (
-        <button disabled={cartHovered} onClick={() => { alert('xxx') }} className={`group h-[382px]  m-auto scale-125 md:scale-100 w-[260px] md:hover:scale-110 hover:scale-[1.3] trans  mt-16 md:mt-5 relative overflow-hidden z-0 rounded-xl`}>
+        <button disabled={cartHovered} onClick={() => { }} className={`group h-[382px]  m-auto scale-125 md:scale-100 w-[260px] md:hover:scale-110 hover:scale-[1.3] trans  mt-16 md:mt-5 relative overflow-hidden z-0 rounded-xl`}>
             {salePrice && <div className='absolute top-0 left-0 m-2 h-6 w-10 z-10 bg-gray-900 rounded-lg items-center justify-center flex'>Sale</div>}
             <div className='group-hover:bottom-16 bottom-0 relative trans flex flex-col gap-5 '>
                 <div className='bg-white w-[260px] h-[260px]'>
@@ -33,7 +33,7 @@ function ItemIcon({ img, price, name, rating, salePrice }) {
 
 
                 </div>
-                <button onMouseLeave={() => { setCartHovered(false) }} onMouseOver={() => { setCartHovered(true) }} onClick={() => { alert('heelo') }} className='bg-rose-400 h-12 z-20 group-hover:opacity-100 hover:bg-blue-900 opacity-0 pointer-events-auto trans-slow'>
+                <button onMouseLeave={() => { setCartHovered(false) }} onMouseOver={() => { setCartHovered(true) }} onClick={() => { }} className='bg-rose-400 h-12 z-20 group-hover:opacity-100 hover:bg-blue-900 opacity-0 pointer-events-auto trans-slow'>
                     <h1 className='font-bold'>Add To Cart</h1>
 
                 </button>
