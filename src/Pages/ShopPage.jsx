@@ -86,7 +86,7 @@ function ShopPage() {
                 })}
             </div>
 
-            <div className=' justify-center w-[90%] m-auto gap-2 grid grid-flow-rows md:grid-cols-2 lg:grid-cols-4'>
+            <div className=' justify-center items-center w-[90%] m-auto gap-12 md:gap-2 grid grid-flow-rows md:grid-cols-2 lg:grid-cols-4'>
                 {
                     x.map((product) => {
                         return (
