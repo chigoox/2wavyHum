@@ -11,7 +11,7 @@ function SideBar() {
     const [showMenu, setShowMenu] = useState(true)
     const toggleMenu = () => { setShowMenu(!showMenu) }
     const currentPage = useLocation().pathname.substring(1)
-    const [selectedMenu, setSeletctedMenu] = useState({ [currentPage != '' ? `${currentPage}` : 'Home']: true })
+    const [selectedMenu, setSeletctedMenu] = useState({ [currentPage != '' ? `${currentPage}` : 'Home']: false })
 
 
     const Icon = ({ item }) => {
