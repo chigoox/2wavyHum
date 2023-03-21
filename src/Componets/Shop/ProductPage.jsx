@@ -6,7 +6,7 @@ function ProductPage({ toggleProductPage, productInfo }) {
     return (
         <div className='z-30 fixed h-screen w-screen flex items-center justify-center'>
 
-            <div className='bg-white trans-slow hover:scale-[1.01] h-[80%] border-2 shadow-xl shadow-black border-white  rounded w-[60%] overflow-y-scroll  flex-col  hidescroll relative p-2'>
+            <div className='bg-white trans-slow hover:scale-[1.01] h-[80%] border-2 shadow-xl shadow-black border-white  rounded w-[90%] md:w-[60%] overflow-y-scroll  flex-col  hidescroll relative p-2'>
                 <button onClick={toggleProductPage} className="absolute right-0 top-0 m-2 bg-black h-5 w-5 z-10"></button>
 
 
