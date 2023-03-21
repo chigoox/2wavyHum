@@ -8,10 +8,10 @@ import { Link, useLocation } from "react-router-dom"
 
 
 function SideBar() {
-    const [showMenu, setShowMenu] = useState(true)
+    const [showMenu, setShowMenu] = useState(false)
     const toggleMenu = () => { setShowMenu(!showMenu) }
     const currentPage = useLocation().pathname.substring(1)
-    const [selectedMenu, setSeletctedMenu] = useState({ [currentPage != '' ? `${currentPage}` : 'Home']: false })
+    const [selectedMenu, setSeletctedMenu] = useState({ [currentPage != '' ? `${currentPage}` : 'Home']: true })
 
 
     const Icon = ({ item }) => {
