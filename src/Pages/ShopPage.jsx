@@ -6,7 +6,7 @@ function ShopPage() {
     const [hovered, setHovered] = useState({})
     const [productPageOpened, setProductPageOpened] = useState(false)
     const [categorySelected, setCategorySelected] = useState({ All: true })
-    const [selectedProduct, setSelectedProduct] = useState({ name: '', img: '', price: '', rating: '', desc: '', salePrice: ''})
+    const [selectedProduct, setSelectedProduct] = useState({ name: '', img: '', price: '', rating: '', desc: '', salePrice: '' })
     const toggleProductPage = () => { setProductPageOpened(!productPageOpened); disableScroll(!productPageOpened) }
     const category = ['Men', 'Women', 'Recommended', 'Featured', 'All',]
     const products = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
@@ -40,7 +40,7 @@ function ShopPage() {
             img: 'https://static.wixstatic.com/media/42ea5f_734864f133f147cb991376a10757c8ac~mv2.png/v1/fill/w_139,h_185,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/42ea5f_734864f133f147cb991376a10757c8ac~mv2.png'
         },
     ]
-    
+
 
 
     return (
@@ -50,34 +50,50 @@ function ShopPage() {
             <div className='z-10 '>
                 <div className={`grid gap-2 hover:gap-4  grid-flow-col scale-75 md:scale-100 w-fit grid-rows-2 text-black rotate-45 m-auto relative trans-slow  top-0 right-0 left-0 bottom-0 ${hovered.n ? 'top-6' : hovered.s ? '-top-6' : hovered.w ? '-left-8' : hovered.e ? 'left-8' : ''}  justify-center`}>
                     <div onMouseOut={() => { setHovered({}) }} onMouseOver={() => { setHovered({ n: true }) }} className='h-52 w-52  relative pointer-events-none  trans-slow'>
-                        <div className='bg-white justify-center items-center flex  hover:w-[90%] hover:h-[90%] w-[60%] h-[60%] m-2 absolute bottom-0 right-0 pointer-events-auto trans-slow'>
-                            <h1 className='font-bold text-3xl'>Hats</h1>
+                        <div className='bg-white justify-center overflow-hidden items-center flex  hover:w-[90%] hover:h-[90%] w-[60%] h-[60%] m-2 absolute bottom-0 right-0 pointer-events-auto trans-slow'>
+                            <h1 className='font-bold text-5xl z-10 text-white -rotate-45'>Hats</h1>
+                            <img className='h-full w-full object-cover scale-[2] bottom-4 absolute' src="https://images.unsplash.com/photo-1534215754734-18e55d13e346?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGhhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60" alt="" />
                         </div>
                     </div>
-                    <div onMouseOut={() => { setHovered({}) }} onMouseOver={() => { setHovered({ w: true }) }} className='h-52 w-52 group bg-white relative group hover:bg-black trans-slow'>
-                        <div className='bg-black group-hover:w-[90%] flex justify-center items-center group-hover:h-[90%] w-[60%] h-[60%] m-2 absolute right-0 pointer-events-auto trans-slow'>
-                            <h1 className='font-bold text-3xl text-white'>T-Shirts</h1>
+                    <div onMouseOut={() => { setHovered({}) }} onMouseOver={() => { setHovered({ w: true }) }} className='h-52 w-52 group overflow-hidden bg-white relative group hover:bg-black trans-slow'>
+                        <div className='bg-black  group-hover:w-[90%] overflow-hidden z-10 flex justify-center items-center group-hover:h-[90%] w-[60%] h-[60%] m-2 absolute right-0 pointer-events-auto trans-slow'>
+                            <h1 className='font-bold text-3xl z-10 shadow-inner  text-white -rotate-45 '>T-Shirts</h1>
+                            <img className='h-full w-full object-cover scale-[1.5] left-3  absolute  -rotate-45' src="https://images.unsplash.com/photo-1606115757624-6b9bfe9fa5e4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjN8fHQlMjBzaGlydHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60" alt="" />
 
                         </div>
+                        <img className='h-full w-full object-cover scale-[1.2] bottom-4 absolute' src="https://images.unsplash.com/photo-1562157873-818bc0726f68?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8dCUyMHNoaXJ0c3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60" alt="" />
+
                     </div>
-                    <div onMouseOut={() => { setHovered({}) }} onMouseOver={() => { setHovered({ e: true }) }} className='h-52 w-52 group bg-white relative hover:bg-black trans-slow'>
-                        <div className='bg-black group-hover:w-[90%] flex  flex-col justify-center items-center group-hover:h-[90%] hover:w-[90%] hover:h-[90%] w-[60%] h-[60%] m-2 absolute left-0 bottom-0 pointer-events-auto trans-slow'>
-                            <h1 className='font-bold text-3xl text-white'>Sweat</h1>
-                            <h1 className='font-bold text-3xl text-white'>pants</h1>
+                    <div onMouseOut={() => { setHovered({}) }} onMouseOver={() => { setHovered({ e: true }) }} className='h-52 w-52 group overflow-hidden bg-white relative hover:bg-black trans-slow'>
+                        <div className='bg-black group-hover:w-[90%] overflow-hidden z-10 flex  flex-col justify-center items-center group-hover:h-[90%] hover:w-[90%] hover:h-[90%] w-[60%] h-[60%] m-2 absolute left-0 bottom-0 pointer-events-auto trans-slow'>
+                            <h1 className='font-bold text-3xl z-10 text-white -rotate-45'>Sweat</h1>
+                            <h1 className='font-bold text-3xl z-10 text-white -rotate-45'>pants</h1>
+
+                            <img className='h-full w-full object-cover scale-[1] absolute' src="https://images.unsplash.com/photo-1650461970708-7bf32499516d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fHN3ZWF0cGFudHN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60" alt="" />
 
                         </div>
+                        <img className='h-full w-full object-cover scale-[1.2] bottom-4 absolute' src="https://images.unsplash.com/photo-1588117305388-c2631a279f82?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c3dlYXRwYW50c3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60" alt="" />
                     </div>
                     <div onMouseOut={() => { setHovered({}) }} onMouseOver={() => { setHovered({ s: true }) }} className='h-52 w-52 relative pointer-events-none hover:bg-black trans-slow'>
-                        <div className='bg-white flex justify-center items-center hover:w-[90%] hover:h-[90%] w-[60%] h-[60%] m-2 absolute pointer-events-auto trans-slow'>
-                            <h1 className='font-bold text-3xl'>Hoodies</h1>
+                        <div className='bg-white flex z-10 overflow-hidden justify-center items-center hover:w-[90%] hover:h-[90%] w-[60%] h-[60%] m-2 absolute pointer-events-auto trans-slow'>
+                            <h1 className='font-bold z-10 text-white text-3xl -rotate-45'>Hoodies</h1>
+                            <img className='h-full w-full object-cover scale-[1.26] bottom-4 absolute' src="https://images.unsplash.com/photo-1590316519564-ebeeca222a95?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8aG9vZGllfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60" alt="" />
                         </div>
+
                     </div>
                 </div>
             </div>
 
             <div className=' h-20  md:h-32 w-full z-0 flex justify-between items-center absolute md:top-[9.5rem] pointer-events-auto top-[23rem]'>
-                <div className='h-full trans-slow w-[35%] md:w-[20%] hover:w-[40%] rounded-r-3xl bg-white'></div>
-                <div className='h-full w-[35%] trans-slow md:w-[20%] hover:w-[40%] rounded-l-3xl bg-white'></div>
+                <div className='h-full trans-slow w-[35%] md:w-[20%] group hover:w-[40%] rounded-r-3xl bg-white overflow-hidden'>
+
+                    <img className='h-full w-full trans-slow group-hover:scale-125 object-cover' src="https://images.unsplash.com/photo-1579969406275-0b37fa82deca?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=770&q=80" alt="" />
+
+                </div>
+                <div className='h-full w-[35%] overflow-hidden trans-slow md:w-[20%] hover:w-[40%] rounded-l-3xl bg-white'>
+                    <img className='h-full w-full trans-slow group-hover:scale-125 object-cover' src="https://images.unsplash.com/photo-1494607239400-ff147da48308?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHVyYmFuJTIwYXBwZXJhbHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60" alt="" />
+
+                </div>
 
             </div>
 
