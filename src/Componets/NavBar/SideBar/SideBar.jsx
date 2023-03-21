@@ -3,12 +3,16 @@ import { AiFillHome } from "react-icons/ai"
 import { BsFillPersonFill, BsNewspaper, BsShop } from "react-icons/bs"
 import { menuItems } from "../MenuItems"
 import MenuButton from "./MenuButton"
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
+
+
 
 function SideBar() {
     const [showMenu, setShowMenu] = useState(true)
     const toggleMenu = () => { setShowMenu(!showMenu) }
-    const [selectedMenu, setSeletctedMenu] = useState({ Home: true })
+    const currentPage = useLocation().pathname.substring(1)
+    const [selectedMenu, setSeletctedMenu] = useState({ [currentPage != '' ? `${currentPage}` : 'Home']: true })
+
 
     const Icon = ({ item }) => {
         if (item.includes('Home')) {
