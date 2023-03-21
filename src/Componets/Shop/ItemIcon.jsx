@@ -1,29 +1,23 @@
 import React, { useState } from 'react'
-import { BsStarFill } from 'react-icons/bs'
+import Rating from './Rating'
 
-function ItemIcon({ img, price, name, rating, salePrice, toggleProductPage, setSelectedProduct }) {
+function ItemIcon({ img, price, name, rating, salePrice, desc, toggleProductPage, setSelectedProduct }) {
     const [cartHovered, setCartHovered] = useState(false)
     const openProductWindow = () => {
-        setSelectedProduct({ img: img, price: price, name: name, rating: rating, salePrice: salePrice })
+        console.log(name)
         toggleProductPage()
     }
-    const Rating = ({ rate }) => {
-        return (
-            <div className="flex gap-1 items-center">
-                {rate >= 1 && <div className={'h-5 w-5 text-yellow-400'}><BsStarFill /></div>}
-                {rate >= 2 && <div className={'h-5 w-5 text-yellow-400'}><BsStarFill /></div>}
-                {rate >= 3 && <div className={'h-5 w-5 text-yellow-400'}><BsStarFill /></div>}
-                {rate >= 4 && <div className={'h-5 w-5 text-yellow-400'}><BsStarFill /></div>}
-                {rate >= 5 && <div className={'h-5 w-5 text-yellow-400'}><BsStarFill /></div>}
 
+    const setItem = () => {
+        console.log(name)
+        setSelectedProduct({ img: img, price: price, name: name, desc: desc, rating: rating, salePrice: salePrice })
 
-            </div >
-        )
     }
+
     return (
-        <button disabled={cartHovered} onClick={openProductWindow} className={`group h-[382px]  m-auto scale-125 md:scale-100 w-[260px] md:hover:scale-110 hover:scale-[1.3] trans  mt-16 md:mt-5 relative overflow-hidden z-0 rounded-xl`}>
+        <button disabled={cartHovered} onMouseOver={setItem} onClick={openProductWindow} className={`group h-[382px]  m-auto scale-125 md:scale-100 w-[260px] md:hover:scale-110 hover:scale-[1.3] trans  mt-16 md:mt-5 relative overflow-hidden z-0 rounded-xl`}>
             {salePrice && <div className='absolute top-0 left-0 m-2 h-6 w-10 z-10 bg-gray-900 rounded-lg items-center justify-center flex'>Sale</div>}
-            <div className='group-hover:bottom-16 bottom-0 relative trans flex flex-col gap-5 '>
+            <div className='group-hover:bottom-16 bottom-0 relative trans-slow flex flex-col gap-5 '>
                 <div className='bg-white w-[260px] h-[260px]'>
                     <img src={img} className={'w-full h-full object-cover'} alt="" />
 

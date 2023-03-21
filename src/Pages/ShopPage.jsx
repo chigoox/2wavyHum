@@ -6,7 +6,7 @@ function ShopPage() {
     const [hovered, setHovered] = useState({})
     const [productPageOpened, setProductPageOpened] = useState(false)
     const [categorySelected, setCategorySelected] = useState({ All: true })
-    const [selectedProduct, setSelectedProduct] = useState()
+    const [selectedProduct, setSelectedProduct] = useState({ name: '', img: '', price: '', rating: '', desc: '', salePrice: ''})
     const toggleProductPage = () => { setProductPageOpened(!productPageOpened); disableScroll(!productPageOpened) }
     const category = ['Men', 'Women', 'Recommended', 'Featured', 'All',]
     const products = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
@@ -40,12 +40,12 @@ function ShopPage() {
             img: 'https://static.wixstatic.com/media/42ea5f_734864f133f147cb991376a10757c8ac~mv2.png/v1/fill/w_139,h_185,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/42ea5f_734864f133f147cb991376a10757c8ac~mv2.png'
         },
     ]
-
+    
 
 
     return (
         <div className={`h-full w-full flex-col flex items-center`} >
-            {productPageOpened && <ProductPage productInfo={{}} toggleProductPage={toggleProductPage} />}
+            {productPageOpened && <ProductPage productInfo={selectedProduct} toggleProductPage={toggleProductPage} />}
 
             <div className='z-10 '>
                 <div className={`grid gap-2 hover:gap-4  grid-flow-col scale-75 md:scale-100 w-fit grid-rows-2 text-black rotate-45 m-auto relative trans-slow  top-0 right-0 left-0 bottom-0 ${hovered.n ? 'top-6' : hovered.s ? '-top-6' : hovered.w ? '-left-8' : hovered.e ? 'left-8' : ''}  justify-center`}>
