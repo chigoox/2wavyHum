@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { BsSearch, BsPerson, BsCart2, BsFillMenuButtonWideFill } from "react-icons/bs";
 import Cart from './Cart';
+import { menuItems } from './MenuItems';
 
 function NavBar() {
-    const navItems = ['Home', 'Shop', 'Product', 'Blog', 'Pages']
+    const navItems = menuItems
     const NavItemsLook = ({ item }) => { return (<a href={`/${item == 'Home' ? '' : item}`} className='font-bold text-xs trans hover:scale-105 text-slate-400 hover:text-white hover:underline  underline-offset-8'>{item}</a>) }
     const [showCart, setShowCart] = useState(false)
     const toggleCart = () => { setShowCart(!showCart) }
