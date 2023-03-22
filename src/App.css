@@ -37,8 +37,16 @@ body{
   background-color: white;
 }
 
-.trans-slow{
+.trans-slow {
   transition: all 1000ms ease-in-out;
+}
+
+.trans-slow-2x {
+  transition: all 2000ms ease-in-out;
+}
+
+.trans-mid {
+  transition: all 750ms ease-in-out;
 }
 
 .trans {
@@ -54,5 +62,17 @@ body{
 .center{
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.around {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.between {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 }

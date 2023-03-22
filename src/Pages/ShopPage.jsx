@@ -1,8 +1,14 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ItemIcon from '../Componets/Shop/ItemIcon'
 import ProductPage from '../Componets/Shop/ProductPage'
 import { disableScroll } from '../ED5/DisableScroll'
+
+
 function ShopPage() {
+
+
+
+
     const [hovered, setHovered] = useState({})
     const [productPageOpened, setProductPageOpened] = useState(false)
     const [categorySelected, setCategorySelected] = useState({ All: true })
@@ -40,6 +46,7 @@ function ShopPage() {
             img: 'https://static.wixstatic.com/media/42ea5f_734864f133f147cb991376a10757c8ac~mv2.png/v1/fill/w_139,h_185,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/42ea5f_734864f133f147cb991376a10757c8ac~mv2.png'
         },
     ]
+
 
 
 

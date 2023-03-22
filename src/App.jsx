@@ -4,10 +4,13 @@ import './App.css'
 import Layout from './Pages/Layout';
 import HomePage from './Pages/HomePage';
 import ShopPage from './Pages/ShopPage';
-
+import AboutPage from './Pages/AboutPage'
+import BlogPage from './Pages/BlogPage';
 import './App.css'
 
 function App() {
+
+
   return (
     <div className="text-white">
       <BrowserRouter>
@@ -15,6 +18,8 @@ function App() {
           <Route exact path="/" element={<Layout />}>
             <Route index element={<HomePage />} />
             <Route path="/Shop" element={<ShopPage />} />
+            <Route path="/Blog" element={<BlogPage />} />
+            <Route path="/About" element={<AboutPage />} />
             {/*  <Route path="/:id" element={<Main />} /> */}
           </Route>
         </Routes>

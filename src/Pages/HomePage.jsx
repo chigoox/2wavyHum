@@ -1,5 +1,6 @@
 import React from 'react'
 import { Fa500Px, FaMoneyBillAlt, FaShieldAlt, FaShippingFast } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 import Hatvid from '../assets/hatvid1.mp4'
 
 function HomePage() {
@@ -12,7 +13,7 @@ function HomePage() {
         )
     }
 
-    const Footer = () => {
+    const Foot = () => {
         const footerItems = ['Free Shipping', 'Secure Payments', "Loyalty rewards", "30-Day Return"]
         const foot = footerItems.map(item => {
             return (
@@ -34,7 +35,7 @@ function HomePage() {
 
 
     return (
-        <div className='h-[100vh] relative bg-black'>
+        <div className='h-[100%] relative bg-black'>
 
 
 
@@ -60,11 +61,11 @@ function HomePage() {
                         <h1 className='text-5xl md:text-7xl'>Humaine</h1>
                         <h1 className='text-5xl md:text-7xl'>Vibes</h1>
                     </div>
-                    <div className=''>
+                    <div className='mb-12'>
                         <p>Casual line. short desgin. 100% suade lather. etc that make store great</p>
                     </div>
 
-                    <button className='my-12 border-2 p-2 border-gray-500 trans-slow hover:text-black hover:bg-gray-300'>Shop Now</button>
+                    <Link to={'/Shop'} className='my-12 p-2  trans-slow bg-[#141414] hover:text-black hover:bg-white'>Shop Now</Link>
                 </div>
             </div>
 
@@ -81,7 +82,7 @@ function HomePage() {
                             <h1 className='text-2xl font-bold'>Humaine Grandeur Philosophy</h1>
                             <h1 className='font-semibold italic'>"5 is the goat"</h1>
                         </div>
-                        <div>
+                        <div className='mb-12'>
                             <br />
                             <h1 className='text-sm'>
                                 Now seven world think timed while her.
@@ -94,7 +95,8 @@ function HomePage() {
                                 repulsive offending. Judge views
                             </h1>
                         </div>
-                        <button className='my-12 border-2 p-2 border-gray-500 trans-slow hover:text-black hover:bg-gray-300'>Shop Now</button>
+                        <Link to={'/Shop'} className='my-12 p-2  trans-slow bg-[#141414] hover:text-black hover:bg-white'>Shop Now</Link>
+
 
                     </div>
                 </div>
@@ -198,46 +200,10 @@ function HomePage() {
             </div>
 
             <div className='mt-20 border-t-gray-600 gap-2 md:gap-16 border-t md:w-[51rem]  md:justify-between justify-center items-center m-auto flex w-[90%] p-4'>
-                <Footer />
+                <Foot />
             </div>
 
-            <div className='bg-[#141414] text-xs gap-12 h-fit  p-14 flex flex-col md:flex-row justify-start items-start'>
-                <div className='p-2'>
-                    <h1 className='my-1 font-bold text-2xl'>Humaine Grandeur</h1>
-                    <h1 className='my-1 '>will add adress here if so?</h1>
-                    <h1 className='my-1 '>+1234567890</h1>
-                    <h1 className='my-1 '>email@email.com</h1>
-                    <div className="my-1  flex gap-4  items-center">
-                        <button className="h-4 w-4 trans hover:scale-105 bg-white"></button>
-                        <button className="h-4 w-4 trans hover:scale-105 bg-white"></button>
-                        <button className="h-4 w-4 trans hover:scale-105 bg-white"></button>
-                        <button className="h-4 w-4 trans hover:scale-105 bg-white"></button>
-                    </div>
-                </div>
-                <div className='my-10 p-2 h-full w-fit'>
-                    <h1 className='text-2xl '> Company</h1>
-                    <div className='h-12 '>
-                        <button className='block'>Contact</button>
-                        <button className='block'>About Store</button>
-                    </div>
-                </div>
 
-                <div className=' h-fit'>
-                    <div className='p-2 h-fit'>
-                        <h1 className='m-1 font-bold text-2xl'>Newletter</h1>
-                        <h1 className='m-1 '>Be the first to hear
-                            the latest news from Humaine
-                            Grandeur, and much more!
-                        </h1>
-                        <input className='w-full h-8 trans-slow focus:scale-110 hover:scale-105' type="text" placeholder='Email' />
-                        <h1>By subscribing you agree to our privacy policy</h1>
-                        <button className='h-12 w-32 p-2 bg-gray-700 trans-slow hover:bg-black hover:scale-110 my-8'>Subscribe</button>
-                    </div>
-
-                </div>
-
-            </div>
-            <div className='h-12 bg-white'></div>
 
 
         </div>
