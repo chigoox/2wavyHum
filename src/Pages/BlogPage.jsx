@@ -28,7 +28,7 @@ function BlogPage() {
                 <div className='h-12 w-full center bg-white'>
                     <button className='font-bold text-2xl text-black'><AiFillPlusSquare /></button>
                 </div>
-                <div className=' overflow-y-scroll gap-2 w-full relative  h-96 center flex-wrap p-4'>
+                <div className='hidden overflow-y-scroll gap-2 w-full relative  h-96 center flex-wrap p-4'>
 
                     <div className='flex gap-2 w-full'>
                         <div className='bg-slate-400 w-3/4 h-52'></div>
