@@ -15,37 +15,60 @@ function ShopPage() {
     const [selectedProduct, setSelectedProduct] = useState({ name: '', img: '', price: '', rating: '', desc: '', salePrice: '' })
     const toggleProductPage = () => { setProductPageOpened(!productPageOpened); disableScroll(!productPageOpened) }
     const category = ['Men', 'Women', 'Recommended', 'Featured', 'All',]
-    const products = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
     const shopitems = [
         {
             name: 'hat',
             price: 40,
             new: false,
             desc: 'none',
-            img: 'https://static.wixstatic.com/media/42ea5f_8d4afe95282744ba88001700f0186eba~mv2.png/v1/fill/w_185,h_185,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/42ea5f_8d4afe95282744ba88001700f0186eba~mv2.png'
+            img: 'https://www.thefashionisto.com/wp-content/uploads/2021/06/Selected-Homme-Bucket-Hat.jpg'
         },
         {
             name: 'shirt',
-            price: 90,
+            price: '$90',
             new: false,
             desc: 'none',
-            img: 'https://static.wixstatic.com/media/42ea5f_1bb09376f0a440f393b6c205f2ad6cd2~mv2.png/v1/fill/w_185,h_185,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/42ea5f_1bb09376f0a440f393b6c205f2ad6cd2~mv2.png'
+            salePrice: '$80',
+            img: 'https://images.unsplash.com/photo-1637248666370-70a4a603c23e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTh8ODZuRGxicjRsMmN8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60'
         },
         {
-            name: 'cape',
-            price: 200,
+            name: 'Shirt',
+            price: '$200',
             new: true,
+            salePrice: '$120',
             desc: 'none',
-            img: 'https://static.wixstatic.com/media/42ea5f_ae19b7e686c94e9dbfaf931ec8121916~mv2.png/v1/fill/w_139,h_185,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/42ea5f_ae19b7e686c94e9dbfaf931ec8121916~mv2.png'
+            img: 'https://media.boohoo.com/i/boohoo/bmm21700_light%20grey_xl/mens-light%20grey-short-sleeve-boxy-oversize-boucle-check-shirt?w=700&qlt=default&fmt.jp2.qlt=70&fmt=auto&sm=fit'
         },
         {
-            name: 'cape',
-            price: 200,
+            name: 'hoodie',
+            price: '$200',
             new: true,
             desc: 'none',
-            img: 'https://static.wixstatic.com/media/42ea5f_734864f133f147cb991376a10757c8ac~mv2.png/v1/fill/w_139,h_185,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/42ea5f_734864f133f147cb991376a10757c8ac~mv2.png'
+            img: 'https://cdn.shopify.com/s/files/1/0023/5765/7653/products/rileymaceycollegetown3_900x.jpg?v=1676925004'
         },
     ]
+
+
+    async function handlePay() {
+
+        fetch(`http://localhost:4242/fethProducts`, {
+            //  mode: 'no-cors',
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                test: 'testing'
+            })
+        }).then(res => console.log(res))
+
+    }
+
+
+
+
+
+
+
+
 
 
 
@@ -53,7 +76,7 @@ function ShopPage() {
     return (
         <div className={`h-full w-full flex-col flex items-center`} >
             {productPageOpened && <ProductPage productInfo={selectedProduct} toggleProductPage={toggleProductPage} />}
-
+            <button onClick={handlePay} className='h-24 w-20 z-[99999999] bg-white'></button>
             <div className='z-10 '>
                 <div className={`grid gap-2 hover:gap-4  grid-flow-col scale-75 md:scale-100 w-fit grid-rows-2 text-black rotate-45 m-auto relative trans-slow  top-0 right-0 left-0 bottom-0 ${hovered.n ? 'top-6' : hovered.s ? '-top-6' : hovered.w ? '-left-8' : hovered.e ? 'left-8' : ''}  justify-center`}>
                     <div onMouseOut={() => { setHovered({}) }} onMouseOver={() => { setHovered({ n: true }) }} className='h-52 w-52  relative pointer-events-none  trans-slow'>
@@ -117,17 +140,18 @@ function ShopPage() {
 
             <div className=' justify-center items-center w-[90%] m-auto gap-12 md:gap-2 grid grid-flow-rows md:grid-cols-2 lg:grid-cols-4'>
                 {
-                    products.map((product, index) => {
+                    shopitems.map((product, index) => {
+                        const { salePrice, name, price, rating, img } = product
                         return (
                             <ItemIcon
                                 key={index}
-                                salePrice={'$100'}
-                                name={'New Hat'}
-                                price={'$200'}
-                                rating={5}
+                                salePrice={salePrice}
+                                name={name}
+                                price={price}
+                                rating={rating}
                                 toggleProductPage={toggleProductPage}
                                 setSelectedProduct={setSelectedProduct}
-                                img={'https://images.unsplash.com/photo-1637248666370-70a4a603c23e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTh8ODZuRGxicjRsMmN8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60'}
+                                img={img}
                             />
                         )
                     })
