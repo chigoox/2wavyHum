@@ -29,7 +29,7 @@ function ProductPage({ toggleProductPage, productInfo }) {
                     </div>
                 </div>
 
-                <div className='h-fit p-4 w-3/4 my-4 overflow-hidden trans-slow hover:scale-105 md:w-[60%] rounded sticky m-auto z-[5] bg-opacity-50  bg-white'>
+                <div className='h-fit p-4 w-3/4 my-4 overflow-hidden trans-slow hover:scale-105 md:w-[60%] rounded sticky m-auto z-[5] bg-opacity-50 text-black border text-xl bg-white'>
                     <h1>{desc}</h1>
                 </div>
 

@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const cors = require('cors')
 const sgMail = require('@sendgrid/mail')
 require('dotenv').config({ path: './.env' })
 
@@ -7,7 +8,7 @@ require('dotenv').config({ path: './.env' })
 
 
 
-
+app.use(cors())
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: true }));
 
@@ -71,9 +72,12 @@ app.post('/sendSMS', async (req, res) => {
 
 
 app.post('/fethProducts' ,async (req, res) =>{
-    const products = await stripe.products.list();
-    console.log(products)
-    res.send({products: products})
+  console.log('wokring')
+    const products = await stripe.products.list()
+    res.send(products.data)
+       
+   
+   
 })
 
 

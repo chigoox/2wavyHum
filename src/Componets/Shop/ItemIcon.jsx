@@ -11,11 +11,10 @@ function ItemIcon({ img, price, name, rating, salePrice, desc, toggleProductPage
     const setItem = () => {
         console.log(name)
         setSelectedProduct({ img: img, price: price, name: name, desc: desc, rating: rating, salePrice: salePrice })
-
     }
 
     return (
-        <button disabled={cartHovered} onMouseOver={setItem} onClick={openProductWindow} className={`group h-[382px]  m-auto scale-125 md:scale-100 w-[260px] md:hover:scale-110 hover:scale-[1.3] trans  mt-16 md:mt-5 relative overflow-hidden z-0 rounded-xl`}>
+        <div disabled={cartHovered} onMouseOver={setItem} onClick={openProductWindow} className={`group cursor-pointer h-[382px]  m-auto scale-125 md:scale-100 w-[260px] md:hover:scale-110 hover:scale-[1.3] trans  mt-16 md:mt-5 relative overflow-hidden z-0 rounded-xl`}>
             {salePrice && <div className='absolute top-0 left-0 m-2 h-6 w-10 z-10 bg-gray-900 rounded-lg items-center justify-center flex'>Sale</div>}
             <div className='group-hover:bottom-16 bottom-0 relative trans flex flex-col gap-5 '>
                 <div className='bg-white w-[260px] h-[260px]'>
@@ -26,7 +25,7 @@ function ItemIcon({ img, price, name, rating, salePrice, desc, toggleProductPage
                     <h1 className=' font-bold text-xl w-fit'>{name}</h1>
                     <Rating rate={rating} />
                     <div className="flex gap-2">
-                        <h1 className=' str'>{salePrice ? <s>{price}</s> : <h1>{price}</h1>}</h1>
+                        <h1 className=' str'>{salePrice ? <s>{price}</s> : price}</h1>
 
                         <h1 className={''}>{salePrice}</h1>
                     </div>
@@ -39,7 +38,7 @@ function ItemIcon({ img, price, name, rating, salePrice, desc, toggleProductPage
                 </button>
             </div>
 
-        </button>
+        </div>
     )
 }
 

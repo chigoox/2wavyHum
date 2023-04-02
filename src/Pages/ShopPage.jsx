@@ -10,56 +10,63 @@ function ShopPage() {
 
 
     const [hovered, setHovered] = useState({})
-    const [productPageOpened, setProductPageOpened] = useState(false)
+    const [isProductPageOpened, setIsProductPageOpened] = useState(false)
     const [categorySelected, setCategorySelected] = useState({ All: true })
     const [selectedProduct, setSelectedProduct] = useState({ name: '', img: '', price: '', rating: '', desc: '', salePrice: '' })
-    const toggleProductPage = () => { setProductPageOpened(!productPageOpened); disableScroll(!productPageOpened) }
+    const [PRODUCTDATA, SETPRODUCTDATA] = useState()
+
+    const toggleProductPage = () => { setIsProductPageOpened(!isProductPageOpened); disableScroll(!isProductPageOpened) }
     const category = ['Men', 'Women', 'Recommended', 'Featured', 'All',]
     const shopitems = [
         {
             name: 'hat',
             price: 40,
             new: false,
-            desc: 'none',
+            desc: 'this is a hat',
+            category: 'hats',
             img: 'https://www.thefashionisto.com/wp-content/uploads/2021/06/Selected-Homme-Bucket-Hat.jpg'
         },
         {
             name: 'shirt',
             price: '$90',
             new: false,
-            desc: 'none',
+            desc: 'this is a shirt',
+            category: 'shirts',
             salePrice: '$80',
             img: 'https://images.unsplash.com/photo-1637248666370-70a4a603c23e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTh8ODZuRGxicjRsMmN8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60'
         },
         {
-            name: 'Shirt',
+            name: 'Sweat Pants',
             price: '$200',
             new: true,
             salePrice: '$120',
-            desc: 'none',
+            desc: 'this is a sweat pants',
+            category: 'sweatpants',
             img: 'https://media.boohoo.com/i/boohoo/bmm21700_light%20grey_xl/mens-light%20grey-short-sleeve-boxy-oversize-boucle-check-shirt?w=700&qlt=default&fmt.jp2.qlt=70&fmt=auto&sm=fit'
         },
         {
             name: 'hoodie',
             price: '$200',
             new: true,
-            desc: 'none',
+            desc: 'this is a hoodie',
+            category: 'hoodies',
             img: 'https://cdn.shopify.com/s/files/1/0023/5765/7653/products/rileymaceycollegetown3_900x.jpg?v=1676925004'
         },
     ]
 
 
-    async function handlePay() {
-
+    async function fetchProuductsFromStripe() {
         fetch(`http://localhost:4242/fethProducts`, {
-            //  mode: 'no-cors',
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 test: 'testing'
             })
-        }).then(res => console.log(res))
-
+        }).then(res => {
+            res.json().then(res => {
+                SETPRODUCTDATA(res)
+            })
+        })
     }
 
 
@@ -72,11 +79,16 @@ function ShopPage() {
 
 
 
+    useEffect(() => {
+        const fetch = async () => { await fetchProuductsFromStripe() }
+        fetch().then(
+
+        )
+    }, [])
 
     return (
         <div className={`h-full w-full flex-col flex items-center`} >
-            {productPageOpened && <ProductPage productInfo={selectedProduct} toggleProductPage={toggleProductPage} />}
-            <button onClick={handlePay} className='h-24 w-20 z-[99999999] bg-white'></button>
+            {isProductPageOpened && <ProductPage productInfo={selectedProduct} toggleProductPage={toggleProductPage} />}
             <div className='z-10 '>
                 <div className={`grid gap-2 hover:gap-4  grid-flow-col scale-75 md:scale-100 w-fit grid-rows-2 text-black rotate-45 m-auto relative trans-slow  top-0 right-0 left-0 bottom-0 ${hovered.n ? 'top-6' : hovered.s ? '-top-6' : hovered.w ? '-left-8' : hovered.e ? 'left-8' : ''}  justify-center`}>
                     <div onMouseOut={() => { setHovered({}) }} onMouseOver={() => { setHovered({ n: true }) }} className='h-52 w-52  relative pointer-events-none  trans-slow'>
@@ -140,8 +152,9 @@ function ShopPage() {
 
             <div className=' justify-center items-center w-[90%] m-auto gap-12 md:gap-2 grid grid-flow-rows md:grid-cols-2 lg:grid-cols-4'>
                 {
-                    shopitems.map((product, index) => {
-                        const { salePrice, name, price, rating, img } = product
+                    shopitems?.map((product, index) => {
+                        //const { name, default_price, images } = product
+                        const { salePrice, name, price, rating, img, desc } = product
                         return (
                             <ItemIcon
                                 key={index}
@@ -152,6 +165,7 @@ function ShopPage() {
                                 toggleProductPage={toggleProductPage}
                                 setSelectedProduct={setSelectedProduct}
                                 img={img}
+                                desc={desc}
                             />
                         )
                     })
