@@ -2,18 +2,19 @@ import React, { useEffect, useState } from 'react'
 import ItemIcon from '../Componets/Shop/ItemIcon'
 import ProductPage from '../Componets/Shop/ProductPage'
 import { disableScroll } from '../ED5/DisableScroll'
-
+import { useOutletContext } from "react-router-dom";
 
 function ShopPage() {
-
-
-
 
     const [hovered, setHovered] = useState({})
     const [isProductPageOpened, setIsProductPageOpened] = useState(false)
     const [categorySelected, setCategorySelected] = useState({ All: true })
     const [selectedProduct, setSelectedProduct] = useState({ name: '', img: '', price: '', rating: '', desc: '', salePrice: '' })
     const [PRODUCTDATA, SETPRODUCTDATA] = useState()
+    const [clientCart, setClientCart] = useOutletContext();
+
+
+
 
     const toggleProductPage = () => { setIsProductPageOpened(!isProductPageOpened); disableScroll(!isProductPageOpened) }
     const category = ['Men', 'Women', 'Recommended', 'Featured', 'All',]
@@ -23,32 +24,36 @@ function ShopPage() {
             price: 40,
             new: false,
             desc: 'this is a hat',
+            rating: 5,
             category: 'hats',
             img: 'https://www.thefashionisto.com/wp-content/uploads/2021/06/Selected-Homme-Bucket-Hat.jpg'
         },
         {
             name: 'shirt',
-            price: '$90',
+            price: 90,
             new: false,
             desc: 'this is a shirt',
             category: 'shirts',
-            salePrice: '$80',
+            salePrice: 80,
+            rating: 4,
             img: 'https://images.unsplash.com/photo-1637248666370-70a4a603c23e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTh8ODZuRGxicjRsMmN8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60'
         },
         {
             name: 'Sweat Pants',
-            price: '$200',
+            price: 200,
             new: true,
-            salePrice: '$120',
+            salePrice: 120,
             desc: 'this is a sweat pants',
+            rating: 4,
             category: 'sweatpants',
             img: 'https://media.boohoo.com/i/boohoo/bmm21700_light%20grey_xl/mens-light%20grey-short-sleeve-boxy-oversize-boucle-check-shirt?w=700&qlt=default&fmt.jp2.qlt=70&fmt=auto&sm=fit'
         },
         {
             name: 'hoodie',
-            price: '$200',
+            price: 200,
             new: true,
             desc: 'this is a hoodie',
+            rating: 4,
             category: 'hoodies',
             img: 'https://cdn.shopify.com/s/files/1/0023/5765/7653/products/rileymaceycollegetown3_900x.jpg?v=1676925004'
         },
@@ -88,7 +93,12 @@ function ShopPage() {
 
     return (
         <div className={`h-full w-full flex-col flex items-center`} >
-            {isProductPageOpened && <ProductPage productInfo={selectedProduct} toggleProductPage={toggleProductPage} />}
+            {isProductPageOpened &&
+                <ProductPage
+                    productInfo={selectedProduct}
+                    toggleProductPage={toggleProductPage}
+                    setClientCart={setClientCart}
+                />}
             <div className='z-10 '>
                 <div className={`grid gap-2 hover:gap-4  grid-flow-col scale-75 md:scale-100 w-fit grid-rows-2 text-black rotate-45 m-auto relative trans-slow  top-0 right-0 left-0 bottom-0 ${hovered.n ? 'top-6' : hovered.s ? '-top-6' : hovered.w ? '-left-8' : hovered.e ? 'left-8' : ''}  justify-center`}>
                     <div onMouseOut={() => { setHovered({}) }} onMouseOver={() => { setHovered({ n: true }) }} className='h-52 w-52  relative pointer-events-none  trans-slow'>
@@ -150,22 +160,30 @@ function ShopPage() {
                 })}
             </div>
 
-            <div className=' justify-center items-center w-[90%] m-auto gap-12 md:gap-2 grid grid-flow-rows md:grid-cols-2 lg:grid-cols-4'>
+            <div className=' justify-center items-center w-[90%] m-auto gap-12 md:gap- grid grid-flow-rows md:grid-cols-2 lg:grid-cols-4'>
                 {
                     shopitems?.map((product, index) => {
                         //const { name, default_price, images } = product
+                        //const rating = 5
+                        //const desc = 'place ho'
+                        const default_price = false
+                        const images = false
                         const { salePrice, name, price, rating, img, desc } = product
                         return (
                             <ItemIcon
                                 key={index}
-                                salePrice={salePrice}
+                                salePrice={default_price ? default_price : salePrice}
                                 name={name}
-                                price={price}
+                                price={default_price ? default_price : price}
                                 rating={rating}
                                 toggleProductPage={toggleProductPage}
                                 setSelectedProduct={setSelectedProduct}
-                                img={img}
+                                selectedProduct={selectedProduct}
+                                setClientCart={setClientCart}
+                                img={images ? images : img}
                                 desc={desc}
+
+
                             />
                         )
                     })

@@ -1,7 +1,8 @@
 import React from 'react'
 import Rating from './Rating'
 import { AiOutlineCloseSquare } from 'react-icons/ai'
-function ProductPage({ toggleProductPage, productInfo }) {
+import AddToCart from './AddToCart'
+function ProductPage({ toggleProductPage, productInfo, setClientCart }) {
 
     const { name, price, salePrice, desc, rating, img } = productInfo
     return (
@@ -23,9 +24,9 @@ function ProductPage({ toggleProductPage, productInfo }) {
                     <h1 className='font-bold text-black text-2xl'>{name}</h1>
                     <Rating rate={rating} />
                     <div className="flex gap-2 font-bold text-black">
-                        <h1 className=' str'>{salePrice ? <s className='text-xl'>{price}</s> : <h1 className='text-2xl'>{price}</h1>}</h1>
+                        <h1 className=' str'>${salePrice ? <s className='text-xl'>{price}</s> : price}</h1>
 
-                        <h1 className={'text-xl'}>{salePrice}</h1>
+                        {salePrice && <h1 className={'text-xl'}>${salePrice}</h1>}
                     </div>
                 </div>
 
@@ -33,10 +34,8 @@ function ProductPage({ toggleProductPage, productInfo }) {
                     <h1>{desc}</h1>
                 </div>
 
-                <div className='center z-10 sticky'>
-                    <button className='w-1/2 m-auto h-12 border-2 border-black text-gray-400 hover:text-white  rounded bg-black hover:bg-black hover:scale-105  trans-slow'>
-                        <h1 className='font-bold text-2xl '>Add To Cart</h1>
-                    </button>
+                <div className='center z-10 sticky w-[60%] m-auto'>
+                    <AddToCart setClientCart={setClientCart} product={productInfo} />
                 </div>
 
 
