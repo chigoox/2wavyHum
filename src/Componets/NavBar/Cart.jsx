@@ -26,7 +26,7 @@ function Cart({ toggleCart, showCart, setClientCart, clientCart, cartTotal }) {
                         <h1 className=''>Total</h1>
                         <h1>${cartTotal}</h1>
                     </div>
-                    <div className='flex-grow flex border w-32 self-end'>
+                    <div className='flex-grow flex w-32 self-end'>
                         <button className={`${showCart ? 'trans-slow' : 'trans-fast'} bg-black  hover:bg-white hover:scale-105 hover:text-black w-32 rounded-xl p-2 m-auto`}>Checkout</button>
                     </div>
                 </div>
