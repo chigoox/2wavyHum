@@ -8,7 +8,7 @@ function ProductPage({ toggleProductPage, productInfo, setClientCart }) {
     return (
         <div className='z-30 fixed h-screen w-screen flex items-center justify-center'>
 
-            <div className='bg-white trans-slow hover:scale-[1.01] h-[80%] border-2 shadow-xl shadow-black border-white  rounded w-[90%] md:w-[60%] overflow-y-scroll  flex-col  hidescroll relative p-2'>
+            <div className='bg-white trans-slow hover:scale-[1.01] h-[70%] border-2 shadow-xl shadow-black border-white  rounded w-[95%] md:w-[60%] overflow-y-scroll  flex-col  hidescroll relative p-2'>
                 <button onClick={toggleProductPage} className="sticky hover:scale-110 group trans-slow right-0 top-0 m-2 bg-white bg-opacity-25 h-12 w-12 z-10">
                     <h1 className='text-5xl text-gray-400 group-hover:text-gray-700 trans-slow'>
                         <AiOutlineCloseSquare />
@@ -16,7 +16,7 @@ function ProductPage({ toggleProductPage, productInfo, setClientCart }) {
                 </button>
 
 
-                <div className='h-[80%] w-3/4 hover:scale-105 trans-slow overflow-hidden md:h-[70%] md:w-[50%] rounded shadow-md shadow-black sticky m-auto z-[5]  bg-white'>
+                <div className='h-[60%] w-3/4 hover:scale-105 trans-slow overflow-hidden md:h-[70%] md:w-[75%] rounded shadow-md shadow-black sticky m-auto z-[5]  bg-white'>
                     <img className='w-full h-full object-cover' src={img} alt="" />
                 </div>
 
