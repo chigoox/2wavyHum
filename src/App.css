@@ -25,6 +25,16 @@
   display: none;
 }
 
+.bg-black-900 {
+
+  background-color: #070707;
+}
+
+.bg-black-800 {
+
+  background-color: #131313;
+}
+
 /* Hide scrollbar for IE, Edge and Firefox */
 .hidescroll {
   -ms-overflow-style: none;
@@ -75,4 +85,87 @@ body{
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0%;
+  }
+
+  to {
+    opacity: 100%;
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0%;
+    left: 100px;
+  }
+
+  to {
+    opacity: 100%;
+    left: 0px;
+  }
+}
+
+@keyframes fadeInZoom {
+  from {
+    opacity: 0%;
+    scale: 50%;
+  }
+
+  to {
+    opacity: 100%;
+    scale: 100%;
+  }
+}
+
+@keyframes fadeInBottom {
+  from {
+    opacity: 0%;
+    top: 100px;
+  }
+
+  to {
+    opacity: 100%;
+    top: 0px;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0%;
+    bottom: 100px;
+  }
+
+  to {
+    opacity: 100%;
+    bottom: 0px;
+  }
+}
+
+.fadeIn {
+
+  animation: fadeIn 2s ease-in-out;
+}
+
+.fadeInRight {
+  position: relative;
+  animation: fadeInRight 2s ease-in-out;
+}
+
+.fadeInZoom {
+  position: relative;
+  animation: fadeInZoom 2s ease-in-out;
+}
+
+.fadeInBottom {
+  position: relative;
+  animation: fadeInBottom 2s ease-in-out;
+}
+
+.fadeInUp {
+  position: relative;
+  animation: fadeInUp 2s ease-in-out;
 }

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import ItemIcon from '../Componets/Shop/ItemIcon'
 import ProductPage from '../Componets/Shop/ProductPage'
 import { disableScroll } from '../ED5/DisableScroll'
-
+import { useOutletContext } from "react-router-dom";
 
 function ShopPage() {
 
@@ -16,7 +16,7 @@ function ShopPage() {
 
 
     return (
-        <div className={`h-full w-full flex-col flex items-center`} >
+        <div className={`h-full w-full flex-col flex fadeInZoom items-center`} >
             <div className='between gap-4 w-full relative flex-col md:flex-row'>
                 <div className='bg-[#141414] rounded-b-xl md:rounded-none h-[40rem] overflow-hidden relative text-sm flex flex-col justify-end z-10 md:text-base p-4 w-80 '>
                     <h1 className='z-[1] text-3xl font-bold'>About Us</h1>

@@ -3,20 +3,27 @@ import { BsSearch, BsPerson, BsCart2, BsFillMenuButtonWideFill } from "react-ico
 import Cart from './Cart';
 import Search from './Search';
 import { menuItems } from './MenuItems';
+import { useLocation } from 'react-router-dom';
 
-function NavBar({ clientCart, setClientCart, cartTotal }) {
+
+function NavBar({ clientCart, setClientCart, cartTotal, currentPage }) {
     const navItems = menuItems
-    const NavItemsLook = ({ item }) => { return (<a href={`/${item == 'Home' ? '' : item}`} className='font-bold text-xs trans hover:scale-105 text-slate-400 hover:text-white hover:underline  underline-offset-8'>{item}</a>) }
     const [showCart, setShowCart] = useState(false)
     const [showSearch, setShowSearch] = useState(false)
     const toggleCart = () => { setShowCart(!showCart) }
     const toggleSearch = () => { setShowSearch(!showSearch) }
     const cartTotalSum = cartTotal.reduce((a, b) => a + b, 0)
-    console.log(cartTotalSum)
+    const currentPagePath = useLocation().pathname
+
+
+
+
+    const NavItemsLook = ({ item }) => { return (<a href={`/${item == 'Home' ? '' : item}`} className={`${(currentPagePath == `/${item}`) ? 'text-2xl underline underline-offset-[10px] text-orange-500' : 'text-xs underline-offset-4'} ${(currentPagePath == '/') ? ' first:text-2xl first:underline first:underline-offset-[10px] first:text-orange-500' : ''} font-bold  trans hover:scale-105 active:bg-white text-slate-400 hover:text-white hover:underline  `}>{item}</a>) }
+
 
 
     return (
-        <div className='flex items-center p-12 h-[76px] w-full fixed z-[99999]'>
+        <div className='flex items-center p-12 h-[76px] fadeInBottom w-full fixed z-[99999]'>
             {
                 <Cart
                     clientCart={clientCart}

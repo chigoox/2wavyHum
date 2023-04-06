@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Fa500Px, FaMoneyBillAlt, FaShieldAlt, FaShippingFast } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import Hatvid from '../assets/hatvid1.mp4'
+import { useOutletContext } from "react-router-dom";
 
 function HomePage() {
+
+
     const bestseller = [1, 2, 3, 4,]
     const ItemBox = () => {
         return (
@@ -35,7 +38,7 @@ function HomePage() {
 
 
     return (
-        <div className='h-[100%] relative bg-black'>
+        <div className='h-[100%] fadeIn relative bg-black'>
 
 
 

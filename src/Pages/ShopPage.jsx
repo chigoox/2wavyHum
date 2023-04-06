@@ -4,7 +4,17 @@ import ProductPage from '../Componets/Shop/ProductPage'
 import { disableScroll } from '../ED5/DisableScroll'
 import { useOutletContext } from "react-router-dom";
 
+
 function ShopPage() {
+    const getRand = (max) => { return Math.floor(Math.random() * max) + 1; }
+    const [startAni, setStartAni] = useState()
+
+    const randAni = (rand) => {
+        if (rand == 1) setStartAni('Right')
+        if (rand == 2) setStartAni('Zoom')
+        if (rand == 3) setStartAni('Bottom')
+    }
+
 
     const [hovered, setHovered] = useState({})
     const [isProductPageOpened, setIsProductPageOpened] = useState(false)
@@ -111,12 +121,14 @@ function ShopPage() {
     useEffect(() => {
         const fetch = async () => { await fetchProuductsFromStripe() }
         fetch().then(
-
         )
+        randAni(getRand(3))
     }, [])
 
+    console.log(categorySelected['hats'])
+
     return (
-        <div className={`h-full w-full flex-col flex items-center`} >
+        <div className={`h-full w-full flex-col flex items-center fadeInBottom`} >
             {isProductPageOpened &&
                 <ProductPage
                     productInfo={selectedProduct}
@@ -124,14 +136,14 @@ function ShopPage() {
                     setClientCart={setClientCart}
                 />}
             <div className='z-10 '>
-                <div className={`grid gap-2 hover:gap-4  grid-flow-col scale-75 md:scale-100 w-fit grid-rows-2 text-black rotate-45 m-auto relative trans-slow  top-0 right-0 left-0 bottom-0 ${hovered.n ? 'top-6' : hovered.s ? '-top-6' : hovered.w ? '-left-8' : hovered.e ? 'left-8' : ''}  justify-center`}>
-                    <div onClick={() => { toggleMenu('hats') }} onMouseOut={() => { setHovered({}) }} onMouseOver={() => { setHovered({ n: true }) }} className='h-52 w-52 cursor-pointer relative pointer-events-none  trans-slow'>
-                        <div className='bg-white justify-center overflow-hidden items-center flex  hover:w-[90%] hover:h-[90%] w-[60%] h-[60%] m-2 absolute bottom-0 right-0 pointer-events-auto trans-slow'>
+                <div className={`grid gap-2 hover:gap-4 fadeIn${startAni} grid-flow-col scale-75 md:scale-100 w-fit grid-rows-2 text-black rotate-45 m-auto relative trans-slow  top-0 right-0 left-0 bottom-0 ${hovered.n ? 'top-6' : hovered.s ? '-top-6' : hovered.w ? '-left-8' : hovered.e ? 'left-8' : ''}  justify-center`}>
+                    <div onClick={() => { toggleMenu('hats') }} onMouseOut={() => { setHovered({}) }} onMouseOver={() => { setHovered({ n: true }) }} className={`h-52 w-52 cursor-pointer relative pointer-events-none  trans-slow`}>
+                        <div className={`${categorySelected.hats ? ' ring-orange-500 ring-2 ring-offset-slate-900 ring-offset-8' : 'outline-0 outline-offset-0'} bg-white justify-center overflow-hidden items-center flex  hover:w-[90%] hover:h-[90%] w-[60%] h-[60%] m-2 absolute bottom-0 right-0 pointer-events-auto trans-slow`}>
                             <h1 className='font-bold text-5xl z-10 text-white -rotate-45'>Hats</h1>
                             <img className='h-full w-full object-cover scale-[2] bottom-4 absolute' src="https://images.unsplash.com/photo-1534215754734-18e55d13e346?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGhhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60" alt="" />
                         </div>
                     </div>
-                    <div onClick={() => { toggleMenu('shirts') }} onMouseOut={() => { setHovered({}) }} onMouseOver={() => { setHovered({ w: true }) }} className='h-52 w-52 group cursor-pointer overflow-hidden bg-white relative group hover:bg-black trans-slow'>
+                    <div onClick={() => { toggleMenu('shirts') }} onMouseOut={() => { setHovered({}) }} onMouseOver={() => { setHovered({ w: true }) }} className={`${categorySelected.shirts ? ' ring-orange-500 ring-2 ring-offset-slate-900 ring-offset-8' : 'outline-0 outline-offset-0'} h-52 w-52 group cursor-pointer overflow-hidden bg-white relative group hover:bg-black trans-slow`}>
                         <div className='bg-black  group-hover:w-[90%] overflow-hidden z-10 flex justify-center items-center group-hover:h-[90%] w-[60%] h-[60%] m-2 absolute right-0 pointer-events-auto trans-slow'>
                             <h1 className='font-bold text-3xl z-10 shadow-inner  text-white -rotate-45 '>T-Shirts</h1>
                             <img className='h-full w-full object-cover scale-[1.5] left-3  absolute  -rotate-45' src="https://images.unsplash.com/photo-1606115757624-6b9bfe9fa5e4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjN8fHQlMjBzaGlydHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60" alt="" />
@@ -140,8 +152,8 @@ function ShopPage() {
                         <img className='h-full w-full object-cover scale-[1.2] bottom-4 absolute' src="https://images.unsplash.com/photo-1562157873-818bc0726f68?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8dCUyMHNoaXJ0c3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60" alt="" />
 
                     </div>
-                    <div onClick={() => { toggleMenu('sweatpants') }} onMouseOut={() => { setHovered({}) }} onMouseOver={() => { setHovered({ e: true }) }} className='h-52 w-52 group cursor-pointer overflow-hidden bg-white relative hover:bg-black trans-slow'>
-                        <div className='bg-black group-hover:w-[90%] overflow-hidden z-10 flex  flex-col justify-center items-center group-hover:h-[90%] hover:w-[90%] hover:h-[90%] w-[60%] h-[60%] m-2 absolute left-0 bottom-0 pointer-events-auto trans-slow'>
+                    <div onClick={() => { toggleMenu('sweatpants') }} onMouseOut={() => { setHovered({}) }} onMouseOver={() => { setHovered({ e: true }) }} className={`${categorySelected.sweatpants ? ' ring-orange-500 ring-2 ring-offset-slate-900 ring-offset-8' : 'outline-0 outline-offset-0'} h-52 w-52 group cursor-pointer overflow-hidden bg-white relative hover:bg-black trans-slow`}>
+                        <div className={`bg-black group-hover:w-[90%] overflow-hidden z-10 flex  flex-col justify-center items-center group-hover:h-[90%] hover:w-[90%] hover:h-[90%] w-[60%] h-[60%] m-2 absolute left-0 bottom-0 pointer-events-auto trans-slow`}>
                             <h1 className='font-bold text-3xl z-10 text-white -rotate-45'>Sweat</h1>
                             <h1 className='font-bold text-3xl z-10 text-white -rotate-45'>pants</h1>
 
@@ -151,7 +163,7 @@ function ShopPage() {
                         <img className='h-full w-full object-cover scale-[1.2] bottom-4 absolute' src="https://images.unsplash.com/photo-1588117305388-c2631a279f82?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c3dlYXRwYW50c3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60" alt="" />
                     </div>
                     <div onClick={() => { toggleMenu('hoodies') }} onMouseOut={() => { setHovered({}) }} onMouseOver={() => { setHovered({ s: true }) }} className='h-52 w-52 relative pointer-events-none cursor-pointer hover:bg-black trans-slow'>
-                        <div className='bg-white flex z-10 overflow-hidden justify-center items-center hover:w-[90%] hover:h-[90%] w-[60%] h-[60%] m-2 absolute pointer-events-auto trans-slow'>
+                        <div className={`${categorySelected.hoodies ? ' ring-orange-500 ring-2 ring-offset-slate-900 ring-offset-8' : 'outline-0 outline-offset-0'} bg-white flex z-10 overflow-hidden justify-center items-center hover:w-[90%] hover:h-[90%] w-[60%] h-[60%] m-2 absolute pointer-events-auto trans-slow`}>
                             <h1 className='font-bold z-10 text-white text-3xl -rotate-45'>Hoodies</h1>
                             <img className='h-full w-full object-cover scale-[1.26] bottom-4 absolute' src="https://images.unsplash.com/photo-1590316519564-ebeeca222a95?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8aG9vZGllfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60" alt="" />
                         </div>
@@ -179,7 +191,7 @@ function ShopPage() {
             <div className=' w-full mt-10 h-20 p-2 gap-8 flex overflow-x-scroll justify-center items-center  overflow-hidden hidescroll'>
                 {type.map((type) => {
                     return (
-                        <button onClick={() => { toggleMenu(type, 'type') }} key={type} className="bg-white hover:scale-125 z-[11] trans text-black flex center w-32 min-w-[130px] rounded-full h-9">{type}</button>
+                        <button onClick={() => { toggleMenu(type, 'type') }} key={type} className={`${typeSelected[type] ? ' ring-orange-500 ring-2 ring-offset-slate-900 ring-offset-4 text-orange-500 bg-black-800' : 'outline-0 outline-offset-0 text-black bg-white'}  hover:scale-125 z-[11] trans-slow flex center w-32 min-w-[130px] rounded-full h-9`}>{type}</button>
                     )
                 })}
             </div>

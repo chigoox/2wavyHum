@@ -45,8 +45,8 @@ function SideBar() {
 
 
     return (
-        <div className={`${showMenu ? 'w-[200px]' : 'w-0 md:w-[6rem]'} md:invisible right-0 z-50 h-full flex fixed transition-all duration-500 ease-in-out`} >
-            <button onClick={toggleMenu} className={`relative ${showMenu ? ' -right-12 text-black' : 'text-black  p-1 right-20 md:-right-11'} top-9  w-12 h-8 text-3xl  transition-all duration-500 ease-in-out flex justify-center items-center ml-1 mt-14`}>
+        <div className={`${showMenu ? 'w-[200px]' : 'w-0 md:w-[6rem]'} md:invisible right-0   z-[99999] h-full flex fixed transition-all duration-500 ease-in-out`} >
+            <button onClick={toggleMenu} className={`relative ${showMenu ? ' -right-12 text-black' : 'text-black  p-1 right-20 md:-right-11'} top-0  w-12 h-8 text-3xl  transition-all duration-500 ease-in-out flex justify-center items-center ml-1 mt-6`}>
                 <MenuButton menuOpen={showMenu} />
             </button>
             <div className={`w-full items-center flex flex-col justify-center  bg-[#070707] shadow-sm shadow-black h-full transition-all duration-500 ease-in-out`}>

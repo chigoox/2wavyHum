@@ -3,10 +3,9 @@ import { AiFillMail, AiFillPlusSquare } from 'react-icons/ai'
 import ItemIcon from '../Componets/Shop/ItemIcon'
 import ProductPage from '../Componets/Shop/ProductPage'
 import { disableScroll } from '../ED5/DisableScroll'
-
+import { useOutletContext } from "react-router-dom";
 
 function BlogPage() {
-
 
 
 
@@ -17,7 +16,7 @@ function BlogPage() {
 
 
     return (
-        <div className={`h-full w-full flex`} >
+        <div className={`h-full fadeIn w-full flex`} >
             <div className='bg-slate-600 center h-[40rem] w-[40%] md:w-[20%] relative overflow-hidden'>
                 <h1 className='z-10 text-5xl text-center'>COMING SOON!</h1>
                 <img className='h-full w-full left-0 top-0 absolute object-cover' src="https://cdn.pixabay.com/photo/2017/08/01/08/29/woman-2563491_1280.jpg" alt="" />

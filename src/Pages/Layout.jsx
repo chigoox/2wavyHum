@@ -8,12 +8,15 @@ import SideBar from "../Componets/NavBar/SideBar/SideBar";
 const Layout = () => {
   const [clientCart, setClientCart] = useState({})
   const [cartTotal, setCartTotal] = useState({})
+
+
+
   const { pathname } = useLocation();
 
 
 
 
-  console.log(cartTotal)
+
 
 
 
