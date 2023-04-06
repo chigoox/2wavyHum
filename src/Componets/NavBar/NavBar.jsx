@@ -18,7 +18,7 @@ function NavBar({ clientCart, setClientCart, cartTotal, currentPage }) {
 
 
 
-    const NavItemsLook = ({ item }) => { return (<a href={`/${item == 'Home' ? '' : item}`} className={`${(currentPagePath == `/${item}`) ? 'text-2xl underline underline-offset-[10px] text-orange-500' : 'text-xs underline-offset-4'} ${(currentPagePath == '/') ? ' first:text-2xl first:underline first:underline-offset-[10px] first:text-orange-500' : ''} font-bold  trans hover:scale-105 active:bg-white text-slate-400 hover:text-white hover:underline  `}>{item}</a>) }
+    const NavItemsLook = ({ item }) => { return (<a href={`/${item == 'Home' ? '' : item}`} className={`${(currentPagePath == `/${item}`) ? 'text-2xl underline underline-offset-[10px] text-orange-500' : 'text-xs underline-offset-4 text-slate-400'} ${(currentPagePath == '/') ? ' first:text-2xl first:underline first:underline-offset-[10px] first:text-orange-500' : ''} font-bold  trans hover:scale-105 active:bg-white  hover:text-white hover:underline  `}>{item}</a>) }
 
 
 
