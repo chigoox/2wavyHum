@@ -188,10 +188,10 @@ function ShopPage() {
 
 
 
-            <div className=' w-full mt-10 h-20 p-2 gap-8 flex overflow-x-scroll justify-center items-center  overflow-hidden hidescroll'>
+            <div className=' w-full mt-10 h-20 p-2 gap-2 flex overflow-x-scroll justify-start items-center  overflow-hidden hidescroll'>
                 {type.map((type) => {
                     return (
-                        <button onClick={() => { toggleMenu(type, 'type') }} key={type} className={`${typeSelected[type] ? ' ring-orange-500 ring-2 ring-offset-slate-900 ring-offset-4 text-orange-500 bg-black-800' : 'outline-0 outline-offset-0 text-black bg-white'}  hover:scale-125 z-[11] trans-slow flex center w-32 min-w-[130px] rounded-full h-9`}>{type}</button>
+                        <button onClick={() => { toggleMenu(type, 'type') }} key={type} className={`${typeSelected[type] ? ' ring-orange-500 ring-2 ring-offset-slate-900 ring-offset-4 text-orange-500 bg-black-800' : 'outline-0 outline-offset-0 text-black bg-white'}  hover:scale-125 z-[11] ml-8 trans-slow flex center w-32 min-w-[130px] rounded-full h-9`}>{type}</button>
                     )
                 })}
             </div>
