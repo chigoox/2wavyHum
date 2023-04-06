@@ -1,7 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Gamja+Flower&family=Inter&family=Italianno&family=Libre+Barcode+39+Text&family=Megrim&family=Poppins&family=Rajdhani:wght@300&family=Reenie+Beanie&family=Staatliches&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
 body{
     background-color: black;
+}
+
+*{
+    font-family: 'inter', cursive;
 }
