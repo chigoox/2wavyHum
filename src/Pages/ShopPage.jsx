@@ -128,7 +128,7 @@ function ShopPage() {
     console.log(categorySelected['hats'])
 
     return (
-        <div className={`h-full w-full flex-col flex items-center fadeInBottom`} >
+        <div className={`h-full w-full flex-col flex items-center fadeInBottom overflow-hidden`} >
             {isProductPageOpened &&
                 <ProductPage
                     productInfo={selectedProduct}
