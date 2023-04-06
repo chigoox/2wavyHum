@@ -5,7 +5,7 @@ import { AiOutlineCloseSquare } from 'react-icons/ai'
 function Cart({ toggleCart, showCart, setClientCart, clientCart, cartTotal }) {
 
     return (
-        <div className={`${showCart ? 'h-[40rem]' : 'h-[0rem]'}   w-[25rem] trans-slow bg-[#080808]  rounded-b-3xl absolute  top-16 right-1 md:right-16`}>
+        <div className={`${showCart ? 'h-[40rem]' : 'h-[0rem]'}   w-[25rem] trans-slow bg-[#080808] m-auto rounded-b-3xl absolute  top-16 -right-[.3rem] md:right-16`}>
             <div className={`${showCart ? 'h-[40rem] visible' : 'h-0  invisible opacity-0'}  w-[25rem] trans-slow  flex items-center p-2 flex-col rounded-b-3xl `}>
                 <div className='bg-[#080808] h-12 w-12  absolute right-[6.2rem] -top-10 rounded-t-full'></div>
                 <button onClick={toggleCart} className='absolute right-0  mx-2 h-10 w-10 hover:text-rose-700 trans-slow hover:scale-105 text-4xl center text-white'><AiOutlineCloseSquare /></button>
