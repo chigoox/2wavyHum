@@ -42,7 +42,7 @@ function HomePage() {
 
 
 
-            <div className='transition-all md:hover:scale-105 hover:outline-dotted outline-offset-0 hover:outline-offset-8 outline-8 group top-0  overflow-hidden duration-1000 ease-in-out lg:w-[50%] w-[50%] md:w-96 h-[35rem] rounded-b-full bg-gray-600 absolute right-0'>
+            <div className='transition-all md:hover:scale-[1.01] group top-0  overflow-hidden duration-1000 ease-in-out lg:w-[50%] w-[50%] md:w-96 h-[35rem] rounded-b-full bg-gray-600 absolute right-0'>
                 {/* <video loop autoPlay muted type="video/mp4" className='h-full object-cover w-full   ' src={Hatvid} >
 
                 </video> */}
