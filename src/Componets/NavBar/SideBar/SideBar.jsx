@@ -33,7 +33,7 @@ function SideBar() {
                 to={`/${item == 'Home' ? '' : item}`}
                 className={`${selectedMenu[item] ? 'bg-orange-500' : 'bg-[#131313]'} w-[90%] h-12 my-8 center relative rounded hover:font-bold hover:text-black trans hover:bg-orange-600 text-2xl`}
             >
-                <button onClick={() => { return setSeletctedMenu({ [item]: true }) }} className="w-full h-full absolute">
+                <button onClick={() => { setShowMenu(false); setSeletctedMenu({ [item]: true }) }} className="w-full h-full absolute">
 
                 </button>
 
