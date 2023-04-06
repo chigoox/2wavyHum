@@ -9,15 +9,28 @@ function ShopPage() {
     const [hovered, setHovered] = useState({})
     const [isProductPageOpened, setIsProductPageOpened] = useState(false)
     const [categorySelected, setCategorySelected] = useState({ All: true })
+    const [typeSelected, setTypeSelected] = useState({ All: true })
     const [selectedProduct, setSelectedProduct] = useState({ name: '', img: '', price: '', rating: '', desc: '', salePrice: '' })
     const [PRODUCTDATA, SETPRODUCTDATA] = useState()
     const [clientCart, setClientCart] = useOutletContext();
 
 
+    const toggleMenu = (name, menuType) => {
+        if (menuType == 'category' || menuType == undefined) {
+            if (categorySelected[name]) {
+                setCategorySelected({ All: true })
+            } else {
+                setCategorySelected({ [name]: true })
+            }
 
+
+        }
+
+        if (menuType == 'type') setTypeSelected({ [name]: true })
+    }
 
     const toggleProductPage = () => { setIsProductPageOpened(!isProductPageOpened); disableScroll(!isProductPageOpened) }
-    const category = ['Men', 'Women', 'Recommended', 'Featured', 'All',]
+    const type = ['Men', 'Women', 'Recommended', 'Featured', 'All',]
     const shopitems = [
         {
             name: 'hat',
@@ -26,6 +39,7 @@ function ShopPage() {
             desc: 'this is a hat',
             rating: 5,
             category: 'hats',
+            type: 'Woman, Men, Featured',
             img: 'https://www.thefashionisto.com/wp-content/uploads/2021/06/Selected-Homme-Bucket-Hat.jpg'
         },
         {
@@ -34,6 +48,7 @@ function ShopPage() {
             new: false,
             desc: 'this is a shirt',
             category: 'shirts',
+            type: 'Men',
             salePrice: 80,
             rating: 4,
             img: 'https://images.unsplash.com/photo-1637248666370-70a4a603c23e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTh8ODZuRGxicjRsMmN8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60'
@@ -45,6 +60,7 @@ function ShopPage() {
             salePrice: 120,
             desc: 'this is a sweat pants',
             rating: 4,
+            type: 'Women Recommended',
             category: 'sweatpants',
             img: 'https://media.boohoo.com/i/boohoo/bmm21700_light%20grey_xl/mens-light%20grey-short-sleeve-boxy-oversize-boucle-check-shirt?w=700&qlt=default&fmt.jp2.qlt=70&fmt=auto&sm=fit'
         },
@@ -54,8 +70,19 @@ function ShopPage() {
             new: true,
             desc: 'this is a hoodie',
             rating: 4,
+            type: 'Featured, Women',
             category: 'hoodies',
             img: 'https://cdn.shopify.com/s/files/1/0023/5765/7653/products/rileymaceycollegetown3_900x.jpg?v=1676925004'
+        },
+        {
+            name: 'hoodie2',
+            price: 500,
+            new: false,
+            desc: 'this is a hoodie',
+            rating: 3,
+            type: 'Women',
+            category: 'hoodies',
+            img: 'https://img.ltwebstatic.com/images3_pi/2021/10/11/1633917325c1330991d87dbb4b202af34b513f8f73_thumbnail_900x.webp'
         },
     ]
 
@@ -81,9 +108,6 @@ function ShopPage() {
 
 
 
-
-
-
     useEffect(() => {
         const fetch = async () => { await fetchProuductsFromStripe() }
         fetch().then(
@@ -101,13 +125,13 @@ function ShopPage() {
                 />}
             <div className='z-10 '>
                 <div className={`grid gap-2 hover:gap-4  grid-flow-col scale-75 md:scale-100 w-fit grid-rows-2 text-black rotate-45 m-auto relative trans-slow  top-0 right-0 left-0 bottom-0 ${hovered.n ? 'top-6' : hovered.s ? '-top-6' : hovered.w ? '-left-8' : hovered.e ? 'left-8' : ''}  justify-center`}>
-                    <div onMouseOut={() => { setHovered({}) }} onMouseOver={() => { setHovered({ n: true }) }} className='h-52 w-52  relative pointer-events-none  trans-slow'>
+                    <div onClick={() => { toggleMenu('hats') }} onMouseOut={() => { setHovered({}) }} onMouseOver={() => { setHovered({ n: true }) }} className='h-52 w-52 cursor-pointer relative pointer-events-none  trans-slow'>
                         <div className='bg-white justify-center overflow-hidden items-center flex  hover:w-[90%] hover:h-[90%] w-[60%] h-[60%] m-2 absolute bottom-0 right-0 pointer-events-auto trans-slow'>
                             <h1 className='font-bold text-5xl z-10 text-white -rotate-45'>Hats</h1>
                             <img className='h-full w-full object-cover scale-[2] bottom-4 absolute' src="https://images.unsplash.com/photo-1534215754734-18e55d13e346?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGhhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60" alt="" />
                         </div>
                     </div>
-                    <div onMouseOut={() => { setHovered({}) }} onMouseOver={() => { setHovered({ w: true }) }} className='h-52 w-52 group overflow-hidden bg-white relative group hover:bg-black trans-slow'>
+                    <div onClick={() => { toggleMenu('shirts') }} onMouseOut={() => { setHovered({}) }} onMouseOver={() => { setHovered({ w: true }) }} className='h-52 w-52 group cursor-pointer overflow-hidden bg-white relative group hover:bg-black trans-slow'>
                         <div className='bg-black  group-hover:w-[90%] overflow-hidden z-10 flex justify-center items-center group-hover:h-[90%] w-[60%] h-[60%] m-2 absolute right-0 pointer-events-auto trans-slow'>
                             <h1 className='font-bold text-3xl z-10 shadow-inner  text-white -rotate-45 '>T-Shirts</h1>
                             <img className='h-full w-full object-cover scale-[1.5] left-3  absolute  -rotate-45' src="https://images.unsplash.com/photo-1606115757624-6b9bfe9fa5e4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjN8fHQlMjBzaGlydHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60" alt="" />
@@ -116,7 +140,7 @@ function ShopPage() {
                         <img className='h-full w-full object-cover scale-[1.2] bottom-4 absolute' src="https://images.unsplash.com/photo-1562157873-818bc0726f68?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8dCUyMHNoaXJ0c3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60" alt="" />
 
                     </div>
-                    <div onMouseOut={() => { setHovered({}) }} onMouseOver={() => { setHovered({ e: true }) }} className='h-52 w-52 group overflow-hidden bg-white relative hover:bg-black trans-slow'>
+                    <div onClick={() => { toggleMenu('sweatpants') }} onMouseOut={() => { setHovered({}) }} onMouseOver={() => { setHovered({ e: true }) }} className='h-52 w-52 group cursor-pointer overflow-hidden bg-white relative hover:bg-black trans-slow'>
                         <div className='bg-black group-hover:w-[90%] overflow-hidden z-10 flex  flex-col justify-center items-center group-hover:h-[90%] hover:w-[90%] hover:h-[90%] w-[60%] h-[60%] m-2 absolute left-0 bottom-0 pointer-events-auto trans-slow'>
                             <h1 className='font-bold text-3xl z-10 text-white -rotate-45'>Sweat</h1>
                             <h1 className='font-bold text-3xl z-10 text-white -rotate-45'>pants</h1>
@@ -126,7 +150,7 @@ function ShopPage() {
                         </div>
                         <img className='h-full w-full object-cover scale-[1.2] bottom-4 absolute' src="https://images.unsplash.com/photo-1588117305388-c2631a279f82?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c3dlYXRwYW50c3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60" alt="" />
                     </div>
-                    <div onMouseOut={() => { setHovered({}) }} onMouseOver={() => { setHovered({ s: true }) }} className='h-52 w-52 relative pointer-events-none hover:bg-black trans-slow'>
+                    <div onClick={() => { toggleMenu('hoodies') }} onMouseOut={() => { setHovered({}) }} onMouseOver={() => { setHovered({ s: true }) }} className='h-52 w-52 relative pointer-events-none cursor-pointer hover:bg-black trans-slow'>
                         <div className='bg-white flex z-10 overflow-hidden justify-center items-center hover:w-[90%] hover:h-[90%] w-[60%] h-[60%] m-2 absolute pointer-events-auto trans-slow'>
                             <h1 className='font-bold z-10 text-white text-3xl -rotate-45'>Hoodies</h1>
                             <img className='h-full w-full object-cover scale-[1.26] bottom-4 absolute' src="https://images.unsplash.com/photo-1590316519564-ebeeca222a95?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8aG9vZGllfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60" alt="" />
@@ -153,9 +177,9 @@ function ShopPage() {
 
 
             <div className=' w-full mt-10 h-20 p-2 gap-8 flex overflow-x-scroll justify-center items-center  overflow-hidden hidescroll'>
-                {category.map((category) => {
+                {type.map((type) => {
                     return (
-                        <div key={category} className="bg-white hover:scale-125 z-[11] trans text-black flex center w-32 min-w-[130px] rounded-full h-9">{category}</div>
+                        <button onClick={() => { toggleMenu(type, 'type') }} key={type} className="bg-white hover:scale-125 z-[11] trans text-black flex center w-32 min-w-[130px] rounded-full h-9">{type}</button>
                     )
                 })}
             </div>
@@ -168,24 +192,30 @@ function ShopPage() {
                         //const desc = 'place ho'
                         const default_price = false
                         const images = false
-                        const { salePrice, name, price, rating, img, desc } = product
-                        return (
-                            <ItemIcon
-                                key={index}
-                                salePrice={default_price ? default_price : salePrice}
-                                name={name}
-                                price={default_price ? default_price : price}
-                                rating={rating}
-                                toggleProductPage={toggleProductPage}
-                                setSelectedProduct={setSelectedProduct}
-                                selectedProduct={selectedProduct}
-                                setClientCart={setClientCart}
-                                img={images ? images : img}
-                                desc={desc}
+                        const { salePrice, name, price, rating, img, desc, type, category } = product
+                        const matchesCategory = categorySelected[category] ? categorySelected[category] : categorySelected.All
+                        const matceshType = typeSelected.All ? true : type.includes(Object.keys(typeSelected)[0])
 
 
-                            />
-                        )
+                        if ((matchesCategory && matceshType)) {
+                            return (
+                                <ItemIcon
+                                    key={index}
+                                    salePrice={default_price ? default_price : salePrice}
+                                    name={name}
+                                    price={default_price ? default_price : price}
+                                    rating={rating}
+                                    toggleProductPage={toggleProductPage}
+                                    setSelectedProduct={setSelectedProduct}
+                                    selectedProduct={selectedProduct}
+                                    setClientCart={setClientCart}
+                                    img={images ? images : img}
+                                    desc={desc}
+
+
+                                />
+                            )
+                        }
                     })
                 }
 
