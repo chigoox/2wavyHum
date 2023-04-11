@@ -50,7 +50,6 @@ function ShopPage() {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
         }).then(res => {
-            console.log(res)
             res.json().then(res => {
                 const { products } = res
                 SETPRODUCTDATA(products)

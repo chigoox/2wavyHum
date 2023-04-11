@@ -1,18 +1,21 @@
 import { useState } from "react"
 import { AiFillHome } from "react-icons/ai"
-import { BsFillPersonFill, BsNewspaper, BsShop } from "react-icons/bs"
+import { BsCart2, BsFillPersonFill, BsNewspaper, BsShop } from "react-icons/bs"
 import { menuItems } from "../MenuItems"
 import MenuButton from "./MenuButton"
 import { Link, useLocation } from "react-router-dom"
+import Cart from "../Cart"
 
 
 
-function SideBar() {
+function SideBar({ clientCart, setClientCart, cartTotal }) {
     const [showMenu, setShowMenu] = useState(false)
     const toggleMenu = () => { setShowMenu(!showMenu) }
     const currentPage = useLocation().pathname.substring(1)
     const [selectedMenu, setSeletctedMenu] = useState({ [currentPage != '' ? `${currentPage}` : 'Home']: true })
-
+    const cartTotalSum = cartTotal.reduce((a, b) => a + b, 0)
+    const [showCart, setShowCart] = useState(false)
+    const toggleCart = () => { setShowCart(!showCart); setShowMenu(false) }
 
     const Icon = ({ item }) => {
         if (item.includes('Home')) {
@@ -49,7 +52,20 @@ function SideBar() {
             <button onClick={toggleMenu} className={`relative ${showMenu ? ' -right-12 text-black' : 'text-black  p-1 right-20 md:-right-11'} top-0  w-12 h-8 text-3xl  transition-all duration-500 ease-in-out flex justify-center items-center ml-1 mt-6`}>
                 <MenuButton menuOpen={showMenu} />
             </button>
+            <Cart
+                clientCart={clientCart}
+                setClientCart={setClientCart}
+                toggleCart={toggleCart}
+                showCart={showCart}
+                cartTotal={cartTotalSum}
+            />
             <div className={`w-full items-center flex flex-col justify-center  bg-[#070707] shadow-sm shadow-black h-full transition-all duration-500 ease-in-out`}>
+                <div className="border-2 w-full h-20">
+                    <div className='flex items-center text-sm z-10'>
+                        <button onClick={toggleCart} className='h-6 w-6  hover:scale-110  m-2 text-xl trans-slow'><BsCart2 /></button>
+                        {(cartTotalSum > 0) && <h1>${cartTotalSum}</h1>}
+                    </div>
+                </div>
                 {menuMap}
             </div>
         </div>

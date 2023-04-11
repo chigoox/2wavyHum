@@ -42,7 +42,7 @@ const Layout = () => {
     <div className="h-full">
       {/* <Header /> */}
       <NavBar clientCart={clientCart} setClientCart={setClientCart} cartTotal={Object.values(cartTotal)} />
-      <SideBar />
+      <SideBar clientCart={clientCart} setClientCart={setClientCart} cartTotal={Object.values(cartTotal)} />
       <Outlet context={[clientCart, setClientCart]} />
       <Footer />
     </div>

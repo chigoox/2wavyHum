@@ -17,13 +17,10 @@ function Cart({ toggleCart, showCart, setClientCart, clientCart, cartTotal }) {
                 cart: STRIPE_CART
             })
         }).then(res => {
-            console.log(res)
             res.json().then(res => {
-                console.log(res, 'jgjgjgk res 2')
 
-                setTimeout(() => {
-                    window.location.href = res.url
-                }, 10000)
+                window.location.href = res.url
+
             })
         })
 
@@ -51,9 +48,8 @@ function Cart({ toggleCart, showCart, setClientCart, clientCart, cartTotal }) {
                         <h1 className=''>Total</h1>
                         <h1>${cartTotal}</h1>
                     </div>
-
                     <div className='flex-grow flex w-32 self-end'>
-                        <button onClick={() => { checkOut() }} className={`${showCart ? 'trans-slow' : 'trans-fast'} bg-black  hover:bg-white hover:scale-105 hover:text-black w-32 rounded-xl p-2 m-auto`}>Checkout</button>
+                        <button disabled={clientCart != undefined} onClick={() => { checkOut() }} className={`${showCart ? 'trans-slow' : 'trans-fast'} bg-black  hover:bg-white hover:scale-105 hover:text-black w-32 rounded-xl p-2 m-auto`}>Checkout</button>
                     </div>
                 </div>
             </div>
