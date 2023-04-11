@@ -70,6 +70,17 @@ function ShopPage() {
         const fetch = async () => { await fetchProuductsFromStripe() }
         fetch().then(
         )
+        fetch('/functions/FetchProducts', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                test: 'testing'
+            })
+        }).then(res => {
+            res.json().then(res => {
+                SETPRODUCTDATA(res)
+            })
+        })
         randAni(getRand(3))
 
 
