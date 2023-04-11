@@ -67,9 +67,9 @@ function ShopPage() {
 
 
     useEffect(() => {
-        const fetch = async () => { await fetchProuductsFromStripe() }
-        fetch().then(
-        )
+        /*  const fetch = async () => { await fetchProuductsFromStripe() }
+         fetch().then(
+         ) */
         fetch('/functions/FetchProducts', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -77,9 +77,7 @@ function ShopPage() {
                 test: 'testing'
             })
         }).then(res => {
-            res.json().then(res => {
-                SETPRODUCTDATA(res)
-            })
+            console.log(res)
         })
         randAni(getRand(3))
 
