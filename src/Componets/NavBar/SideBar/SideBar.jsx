@@ -62,8 +62,8 @@ function SideBar({ clientCart, setClientCart, cartTotal }) {
             <div className={`w-full items-center flex flex-col justify-center  bg-[#070707] shadow-sm shadow-black h-full transition-all duration-500 ease-in-out`}>
                 <div className="w-full h-20">
                     <div className='center text-sm z-10'>
-                        <button onClick={toggleCart} className='h-6 w-6  hover:scale-110  m-2 text-xl trans-slow'><BsCart2 /></button>
-                        {(cartTotalSum > 0) && <h1>${cartTotalSum}</h1>}
+                        <button onClick={toggleCart} className='h-6 w-6  hover:scale-110  m-2 text-4xl trans-slow center'><BsCart2 />{(cartTotalSum > 0) && <h1 className="text-base">${cartTotalSum}</h1>}</button>
+
                     </div>
                 </div>
                 {menuMap}
