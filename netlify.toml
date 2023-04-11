@@ -1,3 +1,5 @@
+[build]
+  functions = './Server'
 [[redirects]]
   from = "/*"
   to = "/index.html"

@@ -3,7 +3,27 @@ import CartItem from './CartItem'
 import { AiOutlineCloseSquare } from 'react-icons/ai'
 
 function Cart({ toggleCart, showCart, setClientCart, clientCart, cartTotal }) {
+    const checkOut = async () => {
+        const STRIPE_CART = Object.values(clientCart).map((item) => {
+            return { quantity: item.count, price: item.priceID }
+        })
 
+        fetch(`http://localhost:4242/create-checkout-session`, {
+            method: 'POST',
+            redirect: 'follow',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                cart: STRIPE_CART
+            })
+        }).then(res => {
+            res.json().then(res => {
+                window.location.href = res.url
+
+            })
+        })
+
+
+    }
     return (
         <div className={`${showCart ? 'h-[40rem]' : 'h-[0rem]'}   w-[25rem] trans-slow bg-[#080808] m-auto rounded-b-3xl absolute  top-16 -right-[.3rem] md:right-16`}>
             <div className={`${showCart ? 'h-[40rem] visible' : 'h-0  invisible opacity-0'}  w-[25rem] trans-slow  flex items-center p-2 flex-col rounded-b-3xl `}>
@@ -26,8 +46,9 @@ function Cart({ toggleCart, showCart, setClientCart, clientCart, cartTotal }) {
                         <h1 className=''>Total</h1>
                         <h1>${cartTotal}</h1>
                     </div>
+
                     <div className='flex-grow flex w-32 self-end'>
-                        <button className={`${showCart ? 'trans-slow' : 'trans-fast'} bg-black  hover:bg-white hover:scale-105 hover:text-black w-32 rounded-xl p-2 m-auto`}>Checkout</button>
+                        <button onClick={() => { checkOut() }} className={`${showCart ? 'trans-slow' : 'trans-fast'} bg-black  hover:bg-white hover:scale-105 hover:text-black w-32 rounded-xl p-2 m-auto`}>Checkout</button>
                     </div>
                 </div>
             </div>
