@@ -77,7 +77,8 @@ function ShopPage() {
             console.log(res)
             res.json().then(res => {
                 console.log(res)
-                SETPRODUCTDATA(res)
+                const { products } = res
+                SETPRODUCTDATA(products)
             })
         })
         randAni(getRand(3))
