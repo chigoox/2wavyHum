@@ -11,8 +11,8 @@ function UndefinedP() {
 
 
     return (
-        <div className={`h-full w-full flex-col flex fadeInZoom items-center text-8xl`} >
-            by ED5...
+        <div className={`w-full flex-col flex justify-center fadeInZoom h-72 items-center text-8xl`} >
+            <h1 className='m-auto fadeInBottom'> by ED5...</h1>
 
 
 
