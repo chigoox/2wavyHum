@@ -21,7 +21,7 @@ function ItemIcon({ priceID, img, price, name, rating, salePrice, desc, togglePr
                     <img src={img} className={'w-full h-full object-cover'} alt="" />
 
                 </div>
-                <div className='h-[83px] flex flex-col gap-2'>
+                <div className='h-[83px] flex flex-col gap-2 relative bottom-10 md:bottom-0'>
                     <h1 className=' font-bold text-xl w-fit'>{name}</h1>
                     <Rating rate={rating} />
                     <div className="flex gap-2">
