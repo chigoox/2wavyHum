@@ -79,6 +79,8 @@ app.post('/fethProducts' ,async (req, res) =>{
    
 })
 
+
+
 app.post('/create-checkout-session', async (req, res) => {
   console.log('working')
   const {cart} = req.body
