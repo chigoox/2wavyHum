@@ -21,7 +21,9 @@ function Cart({ toggleCart, showCart, setClientCart, clientCart, cartTotal }) {
             res.json().then(res => {
                 console.log(res, 'jgjgjgk res 2')
 
-                window.location.href = res.url
+                setTimeout(() => {
+                    window.location.href = res.url
+                }, 10000)
             })
         })
 

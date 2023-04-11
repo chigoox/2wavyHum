@@ -10,9 +10,10 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_API_KEY/* 'sk_test_51
 });
 
 export const handler = async (req, res) => {
-  console.log(req)
+  console.log(req.body)
   const {cart} = req.body
   console.log(cart)
+  console.log(res, 'res')
   const session = await stripe.checkout.sessions.create({
     line_items: cart,
     mode: 'payment',
