@@ -5,6 +5,11 @@
   to = "/index.html"
   status = 200
 
+  from = "/undefined"
+  to = "/Shop"
+  status = 200
+  
+
 
 [functions]
   node_bundler = "esbuild"
