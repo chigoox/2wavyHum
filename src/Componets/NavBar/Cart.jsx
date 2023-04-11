@@ -8,7 +8,8 @@ function Cart({ toggleCart, showCart, setClientCart, clientCart, cartTotal }) {
             return { quantity: item.count, price: item.priceID }
         })
 
-        fetch(`http://localhost:4242/create-checkout-session`, {
+
+        fetch('/.netlify/functions/CheckOut', {
             method: 'POST',
             redirect: 'follow',
             headers: { 'Content-Type': 'application/json' },
@@ -18,7 +19,6 @@ function Cart({ toggleCart, showCart, setClientCart, clientCart, cartTotal }) {
         }).then(res => {
             res.json().then(res => {
                 window.location.href = res.url
-
             })
         })
 

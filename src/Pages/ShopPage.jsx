@@ -46,15 +46,14 @@ function ShopPage() {
 
 
     async function fetchProuductsFromStripe() {
-        fetch(`http://localhost:4242/fethProducts`, {
+        fetch('/.netlify/functions/FetchProducts', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                test: 'testing'
-            })
         }).then(res => {
+            console.log(res)
             res.json().then(res => {
-                SETPRODUCTDATA(res)
+                const { products } = res
+                SETPRODUCTDATA(products)
             })
         })
     }
@@ -67,21 +66,12 @@ function ShopPage() {
 
 
     useEffect(() => {
-        /*  const fetch = async () => { await fetchProuductsFromStripe() }
-         fetch().then(
-         ) */
-        fetch('/.netlify/functions/FetchProducts', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-        }).then(res => {
-            console.log(res)
-            res.json().then(res => {
-                console.log(res)
-                const { products } = res
-                SETPRODUCTDATA(products)
-            })
-        })
-        randAni(getRand(3))
+        const fetch = async () => { await fetchProuductsFromStripe() }
+        fetch().then(
+            randAni(getRand(3))
+        )
+
+
 
 
     }, [])
