@@ -70,7 +70,7 @@ function ShopPage() {
         /*  const fetch = async () => { await fetchProuductsFromStripe() }
          fetch().then(
          ) */
-        fetch('/functions/FetchProducts', {
+        fetch('/.netlify/functions/FetchProducts', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
         }).then(res => {
