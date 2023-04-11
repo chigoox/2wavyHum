@@ -21,16 +21,16 @@ function ProductPage({ toggleProductPage, productInfo, setClientCart }) {
                 </div>
 
                 <div className='h-fit w-3/4 my-4 hover:scale-105 trans-slow overflow-hidden  md:w-[60%] rounded flex flex-col gap-2  sticky m-auto z-[5]  bg-black bg-opacity-50 p-2'>
-                    <h1 className='font-bold text-black text-2xl'>{name}</h1>
+                    <h1 className='font-bold text-white text-2xl'>{name}</h1>
                     <Rating rate={rating} />
-                    <div className="flex gap-2 font-bold text-black">
+                    <div className="flex gap-2 font-bold text-white">
                         <h1 className=' str'>${salePrice ? <s className='text-xl'>{price}</s> : price}</h1>
 
                         {salePrice && <h1 className={'text-xl'}>${salePrice}</h1>}
                     </div>
                 </div>
 
-                <div className='h-fit p-4 w-3/4 my-4 overflow-hidden trans-slow hover:scale-105 md:w-[60%] rounded sticky m-auto z-[5] bg-opacity-50 text-black text-xl bg-black'>
+                <div className='h-fit p-4 w-3/4 my-4 overflow-hidden trans-slow hover:scale-105 md:w-[60%] rounded sticky m-auto z-[5] bg-opacity-50 text-white text-xl bg-black'>
                     <h1>{desc}</h1>
                 </div>
 
