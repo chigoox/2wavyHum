@@ -5,9 +5,12 @@
   to = "/index.html"
   status = 200
 
+[[redirects]]
   from = "/undefined"
   to = "/Shop"
   status = 200
+  force = true # COMMENT: ensure that we always redirect
+
   
 
 
