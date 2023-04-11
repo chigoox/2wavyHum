@@ -20,6 +20,7 @@ function App() {
             <Route path="/Shop" element={<ShopPage />} />
             <Route path="/Blog" element={<BlogPage />} />
             <Route path="/About" element={<AboutPage />} />
+            <Route path="/undefined" element={<ShopPage />} />
             {/*  <Route path="/:id" element={<Main />} /> */}
           </Route>
         </Routes>
