@@ -32,7 +32,7 @@ function ItemIcon({ priceID, img, price, name, rating, salePrice, desc, togglePr
 
 
                 </div>
-                <div className='relative bottom-16 md:bottom-0'>
+                <div className=''>
                     <AddToCart setClientCart={setClientCart} product={selectedProduct} setCartHovered={setCartHovered} />
 
                 </div>
