@@ -14,10 +14,11 @@ export const handler = async (req, res) => {
 
   console.log(req.body['cart'])
 
-  const {cart} = req.body
+  const request = JSON.parse(req)
+  const {cart} = request
 
   const session = await stripe.checkout.sessions.create({
-    line_items: req.body.cart,
+    line_items: cart,
     mode: 'payment',
     success_url: `https://humainegrandeur.netlify.app/Shop?success=true`,
     cancel_url: `https://humainegrandeur.netlify.app/Shop?canceled=true`,
