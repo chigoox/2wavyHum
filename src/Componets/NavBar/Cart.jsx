@@ -49,7 +49,7 @@ function Cart({ toggleCart, showCart, setClientCart, clientCart, cartTotal }) {
                         <h1>${cartTotal}</h1>
                     </div>
                     <div className='flex-grow flex w-32 self-end'>
-                        <button disabled={clientCart != undefined} onClick={() => { checkOut() }} className={`${showCart ? 'trans-slow' : 'trans-fast'} bg-black  hover:bg-white hover:scale-105 hover:text-black w-32 rounded-xl p-2 m-auto`}>Checkout</button>
+                        <button onClick={() => { checkOut() }} className={`${showCart ? 'trans-slow' : 'trans-fast'} bg-black  hover:bg-white hover:scale-105 hover:text-black w-32 rounded-xl p-2 m-auto`}>Checkout</button>
                     </div>
                 </div>
             </div>
