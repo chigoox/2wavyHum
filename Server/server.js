@@ -72,13 +72,25 @@ app.post('/sendSMS', async (req, res) => {
 
 
 app.post('/fethProducts' ,async (req, res) =>{
-  console.log('wokring')
     const products = await stripe.products.list()
     res.send(products.data)
        
    
    
 })
+
+app.post('/create-checkout-session', async (req, res) => {
+  console.log('working')
+  const {cart} = req.body
+  const session = await stripe.checkout.sessions.create({
+    line_items: cart,
+    mode: 'payment',
+    success_url: `http://localhost:5173/Shop?success=true`,
+    cancel_url: `http://localhost:5173/Shop?canceled=true`,
+  });
+
+  res.send({url:session.url});
+});
 
 
 app.post('/create-payment-intent' ,async (req, res) =>{

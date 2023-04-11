@@ -2,14 +2,14 @@ import React, { useState } from 'react'
 import AddToCart from './AddToCart'
 import Rating from './Rating'
 
-function ItemIcon({ img, price, name, rating, salePrice, desc, toggleProductPage, setSelectedProduct, selectedProduct, setClientCart }) {
+function ItemIcon({ priceID, img, price, name, rating, salePrice, desc, toggleProductPage, setSelectedProduct, selectedProduct, setClientCart }) {
     const [cartHovered, setCartHovered] = useState(false)
     const openProductWindow = () => {
         toggleProductPage()
     }
 
     const setItem = () => {
-        if (selectedProduct.name !== name) setSelectedProduct({ img: img, price: price, name: name, desc: desc, rating: rating, salePrice: salePrice })
+        if (selectedProduct.name !== name) setSelectedProduct({ priceID: priceID, img: img, price: price, name: name, desc: desc, rating: rating, salePrice: salePrice })
     }
 
 

@@ -3,11 +3,13 @@ import ItemIcon from '../Componets/Shop/ItemIcon'
 import ProductPage from '../Componets/Shop/ProductPage'
 import { disableScroll } from '../ED5/DisableScroll'
 import { useOutletContext } from "react-router-dom";
+import Notification from '../Componets/Notification';
 
 
 function ShopPage() {
     const getRand = (max) => { return Math.floor(Math.random() * max) + 1; }
     const [startAni, setStartAni] = useState()
+    const [message, setMessage] = useState()
 
     const randAni = (rand) => {
         if (rand == 1) setStartAni('Right')
@@ -41,60 +43,6 @@ function ShopPage() {
 
     const toggleProductPage = () => { setIsProductPageOpened(!isProductPageOpened); disableScroll(!isProductPageOpened) }
     const type = ['Men', 'Women', 'Recommended', 'Featured', 'All',]
-    const shopitems = [
-        {
-            name: 'hat',
-            price: 40,
-            new: false,
-            desc: 'this is a hat',
-            rating: 5,
-            category: 'hats',
-            type: 'Woman, Men, Featured',
-            img: 'https://www.thefashionisto.com/wp-content/uploads/2021/06/Selected-Homme-Bucket-Hat.jpg'
-        },
-        {
-            name: 'shirt',
-            price: 90,
-            new: false,
-            desc: 'this is a shirt',
-            category: 'shirts',
-            type: 'Men',
-            salePrice: 80,
-            rating: 4,
-            img: 'https://images.unsplash.com/photo-1637248666370-70a4a603c23e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTh8ODZuRGxicjRsMmN8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60'
-        },
-        {
-            name: 'Sweat Pants',
-            price: 200,
-            new: true,
-            salePrice: 120,
-            desc: 'this is a sweat pants',
-            rating: 4,
-            type: 'Women Recommended',
-            category: 'sweatpants',
-            img: 'https://media.boohoo.com/i/boohoo/bmm21700_light%20grey_xl/mens-light%20grey-short-sleeve-boxy-oversize-boucle-check-shirt?w=700&qlt=default&fmt.jp2.qlt=70&fmt=auto&sm=fit'
-        },
-        {
-            name: 'hoodie',
-            price: 200,
-            new: true,
-            desc: 'this is a hoodie',
-            rating: 4,
-            type: 'Featured, Women',
-            category: 'hoodies',
-            img: 'https://cdn.shopify.com/s/files/1/0023/5765/7653/products/rileymaceycollegetown3_900x.jpg?v=1676925004'
-        },
-        {
-            name: 'hoodie2',
-            price: 500,
-            new: false,
-            desc: 'this is a hoodie',
-            rating: 3,
-            type: 'Women',
-            category: 'hoodies',
-            img: 'https://img.ltwebstatic.com/images3_pi/2021/10/11/1633917325c1330991d87dbb4b202af34b513f8f73_thumbnail_900x.webp'
-        },
-    ]
 
 
     async function fetchProuductsFromStripe() {
@@ -123,12 +71,28 @@ function ShopPage() {
         fetch().then(
         )
         randAni(getRand(3))
-    }, [])
 
-    console.log(categorySelected['hats'])
+
+    }, [])
+    useEffect(() => {
+        // Check to see if this is a redirect back from Checkout
+        const query = new URLSearchParams(window.location.search);
+
+        if (query.get("success")) {
+            setMessage("Order placed! You will receive an email confirmation.");
+        }
+
+        if (query.get("canceled")) {
+            setMessage(
+                "Order canceled -- continue to shop around and checkout when you're ready."
+            );
+        }
+    }, []);
+
 
     return (
         <div className={`h-full w-full flex-col flex items-center fadeInBottom overflow-hidden`} >
+            {true && <Notification message={message} setMessage={setMessage} />}
             {isProductPageOpened &&
                 <ProductPage
                     productInfo={selectedProduct}
@@ -198,31 +162,31 @@ function ShopPage() {
 
             <div className=' justify-center items-center w-[90%] m-auto gap-12 md:gap- grid grid-flow-rows md:grid-cols-2 lg:grid-cols-4'>
                 {
-                    shopitems?.map((product, index) => {
-                        //const { name, default_price, images } = product
-                        //const rating = 5
-                        //const desc = 'place ho'
-                        const default_price = false
-                        const images = false
-                        const { salePrice, name, price, rating, img, desc, type, category } = product
+                    PRODUCTDATA?.map((product, index) => {
+                        const { name, default_price, images, metadata, description } = product
+                        const { rating, type, category, realPrice, isNew, salePrice } = metadata
+
+
+
                         const matchesCategory = categorySelected[category] ? categorySelected[category] : categorySelected.All
-                        const matceshType = typeSelected.All ? true : type.includes(Object.keys(typeSelected)[0])
+                        const matchesType = typeSelected.All ? true : type.includes(Object.keys(typeSelected)[0])
 
 
-                        if ((matchesCategory && matceshType)) {
+                        if ((matchesCategory && matchesType)) {
                             return (
                                 <ItemIcon
                                     key={index}
-                                    salePrice={default_price ? default_price : salePrice}
+                                    salePrice={realPrice ? salePrice : null}
                                     name={name}
-                                    price={default_price ? default_price : price}
+                                    price={realPrice ? realPrice : salePrice ? salePrice : null}
                                     rating={rating}
                                     toggleProductPage={toggleProductPage}
                                     setSelectedProduct={setSelectedProduct}
                                     selectedProduct={selectedProduct}
                                     setClientCart={setClientCart}
-                                    img={images ? images : img}
-                                    desc={desc}
+                                    img={images ? images[0] : img}
+                                    desc={description}
+                                    priceID={default_price}
 
 
                                 />
