@@ -17,7 +17,10 @@ function Cart({ toggleCart, showCart, setClientCart, clientCart, cartTotal }) {
                 cart: STRIPE_CART
             })
         }).then(res => {
+            console.log(res)
             res.json().then(res => {
+                console.log(res)
+
                 window.location.href = res.url
             })
         })

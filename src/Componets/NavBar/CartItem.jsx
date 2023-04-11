@@ -5,7 +5,7 @@ function CartItem({ name, price, qty, img, setClientCart }) {
     const [qtyInputValue, setQtyInputValue] = useState()
     const handleInputChange = ({ target }) => {
         setQtyInputValue(target.value);
-
+        //
         setClientCart(old => {
             return (
                 { ...old, [name + price]: { ...old[name + price], count: Number(target.value) } }
