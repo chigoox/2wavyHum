@@ -35,7 +35,7 @@ function ProductPage({ toggleProductPage, productInfo, setClientCart }) {
                 </div>
 
                 <div className='center z-10 sticky w-[60%] m-auto'>
-                    <AddToCart setClientCart={setClientCart} product={productInfo} />
+                    <AddToCart setClientCart={setClientCart} product={productInfo} inProduct={true} />
                 </div>
 
 
