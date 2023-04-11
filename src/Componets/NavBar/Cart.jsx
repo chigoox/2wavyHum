@@ -19,7 +19,7 @@ function Cart({ toggleCart, showCart, setClientCart, clientCart, cartTotal }) {
         }).then(res => {
             console.log(res)
             res.json().then(res => {
-                console.log(res)
+                console.log(res, 'jgjgjgk res 2')
 
                 window.location.href = res.url
             })
