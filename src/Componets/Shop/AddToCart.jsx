@@ -18,7 +18,7 @@ function AddToCart({ setCartHovered, setClientCart, product }) {
     }
     return (
         /* at shop page */
-        <div onClick={() => { addToCart() }} onMouseLeave={() => { setCartHovered && setCartHovered(false) }} onMouseOver={() => { setCartHovered && setCartHovered(true) }} className='bg-rose-400 w-full m-auto h-12 z-20 group-hover:opacity-100 flex items-start justify-center hover:bg-blue-900 cursor-pointer opacity-100 pointer-events-auto trans-slow'>
+        <div onClick={() => { addToCart() }} onMouseLeave={() => { setCartHovered && setCartHovered(false) }} onMouseOver={() => { setCartHovered && setCartHovered(true) }} className='bg-rose-400 w-full m-auto h-12 z-20 group-hover:opacity-100 flex items-start md:items-center justify-center hover:bg-blue-900 cursor-pointer opacity-100 pointer-events-auto trans-slow'>
             <h1 className='font-bold'>Add To Cart</h1>
 
         </div>
