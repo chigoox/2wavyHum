@@ -14,7 +14,7 @@ export const handler = async (req, res) => {
 
   console.log(req.body['cart'])
 
-  const request = JSON.parse(req)
+  const request = JSON.parse(req.body)
   const {cart} = request
 
   const session = await stripe.checkout.sessions.create({
