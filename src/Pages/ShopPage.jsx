@@ -17,7 +17,7 @@ function ShopPage() {
         if (rand == 3) setStartAni('Bottom')
     }
 
-
+    //
     const [hovered, setHovered] = useState({})
     const [isProductPageOpened, setIsProductPageOpened] = useState(false)
     const [categorySelected, setCategorySelected] = useState({ All: true })
