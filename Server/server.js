@@ -87,8 +87,8 @@ app.post('/create-checkout-session', async (req, res) => {
   const session = await stripe.checkout.sessions.create({
     line_items: cart,
     mode: 'payment',
-    success_url: `http://localhost:5173/Shop?success=true`,
-    cancel_url: `http://localhost:5173/Shop?canceled=true`,
+    success_url: `https://humainegrandeur.netlify.app/Shop?success=true`,
+    cancel_url: `https://humainegrandeur.netlify.app/Shop?canceled=true`,
   });
 
   res.send({url:session.url});
