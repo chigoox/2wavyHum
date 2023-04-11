@@ -73,11 +73,12 @@ function ShopPage() {
         fetch('/functions/FetchProducts', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                test: 'testing'
-            })
         }).then(res => {
             console.log(res)
+            res.json().then(res => {
+                console.log(res)
+                SETPRODUCTDATA(res)
+            })
         })
         randAni(getRand(3))
 
