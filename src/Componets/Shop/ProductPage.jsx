@@ -10,7 +10,7 @@ function ProductPage({ toggleProductPage, productInfo, setClientCart }) {
 
             <div className='bg-black-800 trans-slow hover:scale-[1.01] h-[70%] shadow-xl shadow-black -white border rounded w-[95%] md:w-[60%] overflow-y-scroll  flex-col  hidescroll relative p-2'>
                 <button onClick={toggleProductPage} className="sticky hover:scale-110 group trans-slow right-0 top-0 m-2 bg-white bg-opacity-25 h-12 w-12 z-10">
-                    <h1 className='text-5xl text-gray-100 group-hover:text-white  trans-slow'>
+                    <h1 className='text-5xl text-rose-600 group-hover:text-rose-800  trans-slow'>
                         <AiOutlineCloseSquare />
                     </h1>
                 </button>
