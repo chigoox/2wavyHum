@@ -6,7 +6,7 @@ import { menuItems } from './MenuItems';
 import { useLocation } from 'react-router-dom';
 
 
-function NavBar({ clientCart, setClientCart, cartTotal, currentPage }) {
+function NavBar({ clientCart, setClientCart, cartTotal }) {
     const navItems = menuItems
     const [showCart, setShowCart] = useState(false)
     const [showSearch, setShowSearch] = useState(false)
