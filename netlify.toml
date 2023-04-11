@@ -6,7 +6,7 @@
   status = 200
 
 [[redirects]]
-  from = "/undefined"
+  from = "https://humainegrandeur.netlify.app/undefined"
   to = "https://humainegrandeur.netlify.app/"
   status = 200
   force = true # COMMENT: ensure that we always redirect
