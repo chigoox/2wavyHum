@@ -10,7 +10,6 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_API_KEY/* 'sk_test_51
 });
 
 export const handler = async () => {
-  console.log(process.env.STRIPE_SECRET_API_KEY)
   const products = await stripe.products.list()
   return {
     statusCode: 200,
